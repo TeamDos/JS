@@ -14,10 +14,16 @@ export default class Uploader extends Component{
 	// }
 
 	dataHandler(data){
+		if (data.file && data.caption){
+			data.file = this.file;
+			console.log(data);
+			this.props.sendData(data);
+		}else{
 
-		data.file = this.file;
-		console.log(data);
-		this.props.sendData(data);
+			alert("You must enter a caption and an image");
+
+		}
+		
 
 	}
 
