@@ -156,7 +156,7 @@ function logout (){
 
 }
 
-renderLogin();
+renderPlayBoard();
 // renderGameBoard();
 //renderUploader();
 // renderPlayBoard ();

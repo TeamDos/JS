@@ -6,7 +6,7 @@ export default class PlayBoard extends Component{
 		super();
 		this.state = {
 
-			countdown: 10
+			countdown: 100
 
 		}
 
@@ -44,13 +44,14 @@ export default class PlayBoard extends Component{
 	render(){
 
 		return(
+			<div className="playboard-wrapper">
 
-			<div>
+				<div className="countdown">
 
-				{this.state.countdown}
+					TIME LEFT:<br/>
+					<span className="countdown-numbers"> {this.state.countdown}</span> seconds
 
-				
-
+				</div>
 			</div>
 
 			);
