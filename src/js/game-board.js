@@ -11,7 +11,7 @@ export default class GameBoard extends Component {
 
 	clickHandler(){
 
-		this.props.toUpload();
+		this.props.toLogout();
 
 	}
 
@@ -20,8 +20,8 @@ export default class GameBoard extends Component {
 		return(
 
 			<div className="game-board">
-
-				{countdown}
+				<button onClick={::this.clickHandler}>Logout</button>
+				{this.props.countdown}
 
 				<h1>Click Image to Play</h1>
 
