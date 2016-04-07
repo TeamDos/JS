@@ -7,23 +7,21 @@ import { ajax } from 'jquery';
 import GameBoard from './game-board';
 import Uploader from './Uploader';
 import Cookies from 'js-cookie';
+import PlayBoard from './play-board';
 
 let loggedInUser = null;
 
 function addUser(newUser) {
-
-	/////cookies stuff should go in the 'then' method in the ajax chain so it's only set if the POST request was a success
-
 	
-
-	// data.append('username', newUser.username);
-	// data.append('password', newUser.password);
+	let data = new FormData();
+	data.append('username', newUser.username);
+	data.append('password', newUser.password);
 	console.log(newUser);
 
 	ajax({
       url: 'https://safe-ridge-87798.herokuapp.com/signups',
       type: 'POST',
-      data: newUser,
+      data: data,
       cache: false,
       dataType: 'json',
       processData: false,
@@ -55,25 +53,23 @@ function addUser(newUser) {
 
 function sendDataAndRenderGame(data){
 
-	//let submission = new FormData();
-	// submission.append('file', data.file);
-	// submission.append('caption', data.caption);
+	let submission = new FormData();
+	submission.append('file', data.file);
+	submission.append('caption', data.caption);
 
 
-	// ajax({
- //      url: 'http://localhost:8025/upload',
- //      type: 'POST',
- //      data: submission,
- //      cache: false,
- //      dataType: 'json',
- //      processData: false,
- //      contentType: false
- //    }).then(() => {
- //    	
-		//renderGameBoard();
- //    });
-
-	renderGameBoard();
+	ajax({
+      url: 'https://safe-ridge-87798.herokuapp.com/game_data',
+      type: 'POST',
+      data: submission,
+      cache: false,
+      dataType: 'json',
+      processData: false,
+      contentType: false
+    }).then(() => {
+    	
+		renderGameBoard();
+    });
 }
 
 function renderLogin (){
@@ -105,24 +101,30 @@ function renderGameBoard (){
 
 };
 
-function timer(){
+function timer(){x=>x}
 
-	let countdownTimer = setInterval(untilZero, 1000);
-	let t = 90;
+// 	let countdownTimer = setInterval(untilZero, 1000);
+// 	let t = 90;
 
-	return untilZero = function(){
-		t--;
+// 	function untilZero (){
+// 		t--;
 
-		return t;
+// 		return t;
 
-		if (t === 0){
-			clearInterval(countdownTimer);
-		}
+// 		if (t === 0){
+// 			clearInterval(countdownTimer);
+// 		}
+// 		}
+// 	return t;
+// 	}
 
-
-		}
-
-	}
+// function countDown(i) {
+//     var int = setInterval(() => {
+//         document.getElementById("displayDiv").innerHTML = "Number: " + i;
+//         i-- || clearInterval(int);  //if i is 0, then stop the interval
+//     }, 1000);
+// }
+// countDown(5);
 
 
 function renderUploader (){
@@ -130,6 +132,16 @@ function renderUploader (){
 	render(
 
 		<Uploader sendData={sendDataAndRenderGame} toLogout={logout}/>,
+		document.querySelector('.app')
+	);
+
+};
+
+function renderPlayBoard (){
+
+	render(
+
+		<PlayBoard />,
 		document.querySelector('.app')
 	);
 
@@ -144,5 +156,7 @@ function logout (){
 
 }
 
-renderLogin();
+// renderLogin();
 // renderGameBoard();
+//renderUploader();
+renderPlayBoard ();

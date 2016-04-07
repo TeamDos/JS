@@ -15,17 +15,22 @@ export default class GameBoard extends Component {
 
 	}
 
+	uploadHandler(){
+
+		this.props.toUpload();
+
+	}
+
 	render(){
 
 		return(
 
 			<div className="game-board">
 				<button onClick={::this.clickHandler}>Logout</button>
-				{this.props.countdown}
 
 				<h1>Click Image to Play</h1>
 
-				<button onClick={::this.clickHandler}>Upload your own image!</button>
+				<button onClick={::this.uploadHandler}>Upload your own image!</button>
 
 			</div>
 
