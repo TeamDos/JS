@@ -29,7 +29,7 @@ export default class Login extends Component{
 
 		return(
 
-			<div className="login=wrapper">
+			<div className="login-wrapper">
 				<h1>Log in</h1>
 				<SSF onData={::this.clickHandler}>
 
