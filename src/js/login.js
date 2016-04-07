@@ -32,15 +32,18 @@ export default class Login extends Component{
 			<div className="login-wrapper">
 				<h1>Log in</h1>
 				<SSF onData={::this.clickHandler}>
+				<br/>
 
 					<label>Enter username:
 						<input type="text" name="username"></input>
 					</label>
+					<br/><br/>
 
 					<label>Enter password:
 						<input type="password" name="password"></input>
 					</label>
-
+					<br/><br/>
+					
 					<button>Submit</button>
 				</SSF>
 
