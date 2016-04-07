@@ -12,7 +12,16 @@ export default class Login extends Component{
 
 	clickHandler(newUser){
 
-		this.props.addUserFunc(newUser);
+		console.log(newUser);
+
+		if(newUser.username && newUser.password){
+			this.props.addUserFunc(newUser);
+		}else{
+
+			alert("need a username and a password");
+
+		}
+		
 
 	}
 

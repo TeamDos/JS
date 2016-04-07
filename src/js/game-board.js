@@ -3,11 +3,11 @@ import React, { Component, PropTypes } from 'react';
 
 export default class GameBoard extends Component {
 
-	// static propTypes = {
+	static propTypes = {
 
+		countdown: PropTypes.func.isRequired
 
-
-	// }
+	}
 
 	clickHandler(){
 
@@ -20,6 +20,8 @@ export default class GameBoard extends Component {
 		return(
 
 			<div className="game-board">
+
+				{countdown}
 
 				<h1>Click Image to Play</h1>
 

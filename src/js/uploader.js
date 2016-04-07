@@ -32,25 +32,36 @@ export default class Uploader extends Component{
 		this.file = file;
 	}
 
+	clickHandler(){
+
+		this.props.toLogout();
+
+	}
+
 	render(){
 
 		return(
 
-			<SSF onData={::this.dataHandler}>
+			<div>
+				<button onClick={::this.clickHandler}>Logout</button>
 
-				<h1>Uploader Page</h1>
+				<SSF onData={::this.dataHandler}>
 
-				<Dropzone onDrop={::this.dropHandler}>
+					<h1>Uploader Page</h1>
 
-				</Dropzone>
+					<Dropzone onDrop={::this.dropHandler}>
 
-				<label>Enter caption below:
-					<input type="text" name="caption"></input>
-				</label>
+					</Dropzone>
 
-				<button>Submit</button>
+					<label>Enter caption below:
+						<input type="text" name="caption"></input>
+					</label>
 
-			</SSF>
+					<button>Submit</button>
+
+
+				</SSF>
+			</div>
 
 			);
 
