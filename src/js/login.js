@@ -39,14 +39,14 @@ export default class Login extends Component{
 					<SSF onData={::this.clickHandler}>
 					<br/>
 
-						<label>Enter username:
+						<label>USERNAME: </label>
 							<input type="text" name="username"></input>
-						</label>
+						
 						<br/><br/>
 
-						<label>Enter password:
+						<label>PASSWORD: </label>
 							<input type="password" name="password"></input>
-						</label>
+						
 						<br/><br/>
 
 						<button>Submit</button>
