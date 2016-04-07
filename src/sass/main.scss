@@ -4,11 +4,7 @@
 @import 'normalize';
 @import 'font-awesome/scss/font-awesome';
 
-
-
-//////////LOG IN/////////////////////////////////
-
-.login-wrapper{
+.app{
 	background: rgb(176,219,232); /* Old browsers */
 	background: -moz-linear-gradient(top, rgba(176,219,232,1) 0%, rgba(0,158,195,1) 100%); /* FF3.6-15 */
 	background: -webkit-linear-gradient(top, rgba(176,219,232,1) 0%,rgba(0,158,195,1) 100%); /* Chrome10-25,Safari5.1-6 */
@@ -16,13 +12,30 @@
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b0dbe8', endColorstr='#009ec3',GradientType=0 );
 
 	height: 100vh;
-	display: flex;
-	align-items: center;
-	flex-direction:column;
-	flex-wrap: wrap;
-
 }
 
-.login-wrapper h1 {
+//////////LOG IN/////////////////////////////////
+
+.login-wrapper{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction:column;
+	flex-wrap: wrap;
+	height: 100vh;
+}
+
+.login {
+	border: 1px solid red;
+	padding: 25px;
+}
+
+.login h1 {
 	margin: 0;
+}
+
+.login button{
+	float: right;
+	background-color: transparent;
+	border-radius: 5px;
 }
