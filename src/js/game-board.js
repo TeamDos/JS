@@ -21,6 +21,11 @@ export default class GameBoard extends Component {
 
 	}
 
+	gameInitiator(){
+
+		this.props.startGame();
+	}
+
 	render(){
 
 		return(
@@ -28,7 +33,7 @@ export default class GameBoard extends Component {
 			<div className="game-board">
 				<button onClick={::this.clickHandler}>Logout</button>
 
-				<h1>Click Image to Play</h1>
+				<h1 onClick={::this.gameInitiator}>START!</h1>
 
 				<button onClick={::this.uploadHandler}>Upload your own image!</button>
 
