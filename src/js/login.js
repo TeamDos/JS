@@ -29,6 +29,11 @@ export default class Login extends Component{
 
 		return(
 			<div className="login-wrapper">
+				<span className="logo-header"> Bongo </span>
+
+				<p className="logo-subheader"> a geo-guessing game</p>
+				<br/> <br/>
+
 				<div className="login">
 					<h1>Log in</h1>
 					<SSF onData={::this.clickHandler}>
