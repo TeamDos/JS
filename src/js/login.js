@@ -35,7 +35,7 @@ export default class Login extends Component{
 				<br/> <br/>
 
 				<div className="login">
-					<h1>Log in</h1>
+					<h3>Log in/Sign up</h3>
 					<SSF onData={::this.clickHandler}>
 					<br/>
 
