@@ -144,5 +144,5 @@ function logout (){
 
 }
 
-renderLogin();
-
+// renderLogin();
+renderGameBoard();
