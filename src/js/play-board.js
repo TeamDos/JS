@@ -12,7 +12,8 @@ export default class PlayBoard extends Component{
 
 	}
 
-	updateState(){
+
+	componentDidMount() {
 
 		let countInt = setInterval(() => {
 			let { countdown } = this.state;
@@ -23,7 +24,22 @@ export default class PlayBoard extends Component{
 			}
 			this.setState({countdown});
 		}, 1000);
-		}
+	}
+
+
+	// updateState(){
+
+	// 	let countInt = setInterval(() => {
+	// 		let { countdown } = this.state;
+	// 		countdown--;
+	// 		if (countdown <= 0) {
+	// 			countdown = 0;
+	// 			clearInterval(countInt);
+	// 		}
+	// 		this.setState({countdown});
+	// 	}, 1000);
+	// 	}
+	
 
 	render(){
 
@@ -33,7 +49,7 @@ export default class PlayBoard extends Component{
 
 				{this.state.countdown}
 
-				<button onClick={::this.updateState}>Update state</button>
+				
 
 			</div>
 

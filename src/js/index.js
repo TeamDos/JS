@@ -95,7 +95,7 @@ function renderGameBoard (){
 
 	render(
 
-		<GameBoard toUpload={renderUploader} toLogout={logout} countdown={timer}/>,
+		<GameBoard toUpload={renderUploader} toLogout={logout} countdown={timer} startGame={renderPlayBoard}/>,
 		document.querySelector('.app')
 	);
 
@@ -156,7 +156,7 @@ function logout (){
 
 }
 
-// renderLogin();
+renderLogin();
 // renderGameBoard();
 //renderUploader();
-renderPlayBoard ();
+// renderPlayBoard ();
