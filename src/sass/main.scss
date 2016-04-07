@@ -4,6 +4,7 @@
 @import 'normalize';
 @import 'font-awesome/scss/font-awesome';
 
+
 .app{
 	background: rgb(176,219,232); /* Old browsers */
 	background: -moz-linear-gradient(top, rgba(176,219,232,1) 0%, rgba(0,158,195,1) 100%); /* FF3.6-15 */
@@ -19,26 +20,61 @@
 .login-wrapper{
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	// justify-content: center;
+	padding-top: 100px;
 	flex-direction:column;
 	flex-wrap: wrap;
 	height: 100vh;
+
+}
+
+.logo-header{
+	font-family: 'Pacifico', cursive;
+	font-size: 62px;
+}
+
+.logo-subheader{
+	font-family: 'Pacifico', cursive;
+	font-size: 22px;
 }
 
 .login {
 	border-radius: 10px;
+	border: 2px solid black;
 	padding: 25px;
+	// background-image: url("../images/SpoonGraphics-Topographic-Map-1.png");
 	background-color: white;
-	// opacity: 0.4;
+	object-fit:fill;
 
 }
 
-.login h1 {
+.login h3 {
 	margin: 0;
+	color:black;
+
+}
+
+.login p{
+	margin:0;
 }
 
 .login button{
 	float: right;
-	background-color: transparent;
+	background-color: white;
 	border-radius: 5px;
+	font-weight: bold;
 }
+
+.login label{
+	font-weight: bold;
+	font-size: 16px;
+	color: black;
+}
+
+.login input{
+	padding-left: 10px;
+}
+
+
+
+

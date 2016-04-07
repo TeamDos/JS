@@ -29,19 +29,24 @@ export default class Login extends Component{
 
 		return(
 			<div className="login-wrapper">
+				<span className="logo-header"> Bongo </span>
+
+				<p className="logo-subheader"> a geo-guessing game</p>
+				<br/> <br/>
+
 				<div className="login">
-					<h1>Log in</h1>
+					<h3>Log in/Sign up</h3>
 					<SSF onData={::this.clickHandler}>
 					<br/>
 
-						<label>Enter username:
+						<label>USERNAME: </label>
 							<input type="text" name="username"></input>
-						</label>
+						
 						<br/><br/>
 
-						<label>Enter password:
+						<label>PASSWORD: </label>
 							<input type="password" name="password"></input>
-						</label>
+						
 						<br/><br/>
 
 						<button>Submit</button>
