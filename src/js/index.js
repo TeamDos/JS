@@ -44,7 +44,7 @@ function addUser(newUser) {
 
     	}else{
 
-    		alert('login failed');
+    		alert('login failed: username already selected');
     		renderLogin();
 
     	}

@@ -38,6 +38,7 @@ export default class PlayBoard extends Component{
 			currentScore +=10;
 			imgToDisplay++;
 			this.setState({ imgToDisplay });
+			this.setState({ currentScore });
 
 
 			/////need to think through what clears the input field as well
