@@ -135,7 +135,7 @@ function getLeaderboardData (){
     	
     	render(
 
-		<Leaderboard leaderboardData={ data } playAgain={renderGameBoard}/>,
+		<Leaderboard leaderboardData={ data } playAgain={renderGameBoard} addImg={renderUploader} toLogout={logout}/>,
 		document.querySelector('.app')
 		
 	);

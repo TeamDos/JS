@@ -5,7 +5,9 @@ export default class Leaderboard extends Component {
 	static propTypes = {
 
 		leaderboardData: PropTypes.array.isRequired,
-		playAgain: PropTypes.func.isRequired
+		playAgain: PropTypes.func.isRequired,
+		addImg: PropTypes.func.isRequired,
+		toLogout: PropTypes.func.isRequired
 
 	}
 
@@ -17,11 +19,28 @@ export default class Leaderboard extends Component {
 
 	}
 
+	addHandler(){
+
+		let { addImg } = this.props;
+
+		addImg();
+
+	}
+
+	logoutHandler(){
+
+		let { toLogout } = this.props;
+
+		toLogout();
+
+	}
+
 	render(){
 
 		return(
 
 			<div>
+				<button onClick={::this.logoutHandler}>Logout</button>
 
 				<h1>Leaderboard</h1>
 
@@ -30,6 +49,8 @@ export default class Leaderboard extends Component {
 				</ul>
 
 				<button onClick={::this.clickHandler}>Play Again</button>
+
+				<button onClick={::this.addHandler}>Add a famous landmark to the game!</button>
 
 			</div>
 

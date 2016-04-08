@@ -5,6 +5,13 @@ import Countries from './countries';
 
 export default class Uploader extends Component{
 
+	static propTypes = {
+
+		sendData: PropTypes.func.isRequired,
+		toLogout: PropTypes.func.isRequired
+
+	}
+
 	// constructor(){
 	// 	super();
 	// 	this.state = {
