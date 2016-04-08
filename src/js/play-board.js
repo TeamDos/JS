@@ -16,7 +16,7 @@ export default class PlayBoard extends Component{
 		super();
 		this.state = {
 
-			countdown: 10,
+			countdown: 100,
 			imgToDisplay: 0,
 			currentScore: 0
 
@@ -71,12 +71,15 @@ export default class PlayBoard extends Component{
 		let { imgToDisplay } = this.state;
 
 		return(
+			<div className="playboard-wrapper">
 
-			<div>
-
-				{this.state.countdown}
+				<div className="countdown">
 				
+					TIME LEFT:<br/>
+					<span className="countdown-numbers"> {this.state.countdown}</span> seconds
 
+				</div>	
+				
 				<SSF onData={::this.dataHandler}>
 					
 					<img src={gameData[{ imgToDisplay }].src} alt={gameData[{ imgToDisplay }].caption}/>
@@ -88,9 +91,7 @@ export default class PlayBoard extends Component{
 					<button>SUBMIT</button>
 
 				</SSF>
-
 				
-
 			</div>
 
 			);
