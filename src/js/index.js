@@ -91,7 +91,7 @@ function sendDataAndRenderGame(data){
 function stageGame (){
 
 	ajax({
-      url: 'https://safe-ridge-87798.herokuapp.com/game_data',
+      url: 'https://safe-ridge-87798.herokuapp.com/images',
       type: 'GET',
       data: data,
       cache: false,
@@ -102,7 +102,7 @@ function stageGame (){
 
 	render(
 
-		<PlayBoard gameData={ data } onGameOver={renderLeaderboard}/>,
+		<PlayBoard gameData={ data } onGameOver={getLeaderboardData}/>,
 		document.querySelector('.app')
 	);
 
@@ -113,7 +113,7 @@ function stageGame (){
 function getLeaderboardData (){
 
 	ajax({
-      url: 'https://safe-ridge-87798.herokuapp.com/game_data',
+      url: 'https://safe-ridge-87798.herokuapp.com/users',
       type: 'GET',
       data: data,
       cache: false,
@@ -201,7 +201,7 @@ function logout (){
 
 }
 
-// renderLogin();
-renderPlayBoard();
+renderLogin();
+// renderPlayBoard();
 // renderGameBoard();
 //renderUploader();

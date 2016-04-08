@@ -16,7 +16,7 @@ export default class PlayBoard extends Component{
 		super();
 		this.state = {
 
-			countdown: 100,
+			countdown: 20,
 			imgToDisplay: 0,
 			currentScore: 0
 
@@ -36,6 +36,9 @@ export default class PlayBoard extends Component{
 			currentScore +=10;
 			imgToDisplay++;
 			this.setState({ imgToDisplay });
+
+
+			/////need to think through what clears the input field as well
 
 		}else{
 
@@ -82,7 +85,7 @@ export default class PlayBoard extends Component{
 				
 				<SSF onData={::this.dataHandler}>
 					
-					<img src={gameData[{ imgToDisplay }].src} alt={gameData[{ imgToDisplay }].caption}/>
+					<img src={gameData[{ imgToDisplay }].img} alt={gameData[{ imgToDisplay }].caption}/>
 					
 					<label>What location is this?
 						<input type="text" name="caption"></input>

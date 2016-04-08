@@ -6,6 +6,9 @@ export default class GameBoard extends Component {
 	static propTypes = {
 
 		// countdown: PropTypes.func.isRequired
+		toLogout: PropTypes.func.isRequired,
+		toUpload: PropTypes.func.isRequired,
+		startGame: PropTypes.func.isRequired
 
 	}
 
