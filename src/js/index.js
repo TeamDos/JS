@@ -59,7 +59,7 @@ function sendDataAndRenderGame(data){
 
 
 	ajax({
-      url: 'https://safe-ridge-87798.herokuapp.com/game_data',
+      url: 'https://safe-ridge-87798.herokuapp.com/images',
       type: 'POST',
       data: submission,
       cache: false,

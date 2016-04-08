@@ -33,6 +33,8 @@ export default class PlayBoard extends Component{
 
 			////go to next img
 
+
+			//////this might need to go in setState //////////////////////////////////////////
 			currentScore +=10;
 			imgToDisplay++;
 			this.setState({ imgToDisplay });
