@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import SSF from 'react-simple-serial-form';
 import Dropzone from 'react-dropzone';
+import Countries from './countries';
 
 export default class Uploader extends Component{
 
@@ -14,7 +15,7 @@ export default class Uploader extends Component{
 	// }
 
 	dataHandler(data){
-		if (data.file && data.caption){
+		if (this.file && data.caption){
 			data.file = this.file;
 			console.log(data);
 			this.props.sendData(data);
@@ -52,6 +53,11 @@ export default class Uploader extends Component{
 					<Dropzone onDrop={::this.dropHandler}>
 
 					</Dropzone>
+
+					
+						<Countries>
+						</Countries>
+					
 
 					<label>Enter caption below:
 						<input type="text" name="caption"></input>

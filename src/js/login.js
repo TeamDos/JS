@@ -12,8 +12,6 @@ export default class Login extends Component{
 
 	clickHandler(newUser){
 
-		console.log(newUser);
-
 		if(newUser.username && newUser.password){
 			this.props.addUserFunc(newUser);
 		}else{
