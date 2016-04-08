@@ -27,7 +27,7 @@ function addUser(newUser) {
       contentType: false
     }).then( (response, statusText, { status } ) => {
 		
-    	if (status == 201 || status == 401){
+    	if (status == 201){
 
     		console.log("response.user =>",response.user);
     		console.log("response.user.id =>",response.user.id);
@@ -45,6 +45,50 @@ function addUser(newUser) {
     	}else{
 
     		alert('login failed: username already selected');
+    		renderLogin();
+
+    	}
+    	
+		
+    });
+
+} 
+
+
+function logInUser(newUser) {
+	
+	let data = new FormData();
+	data.append('username', newUser.username);
+	data.append('password', newUser.password);
+
+	ajax({
+      url: 'https://safe-ridge-87798.herokuapp.com/login',
+      type: 'POST',
+      data: data,
+      cache: false,
+      dataType: 'json',
+      processData: false,
+      contentType: false
+    }).then( (response, statusText, { status } ) => {
+		
+    	if (status == 200){
+
+    		console.log("response.user =>",response.user);
+    		console.log("response.user.id =>",response.user.id);
+
+			Cookies.set('username', response.user.username);
+			Cookies.set('auth_token', response.user.auth_token);
+			Cookies.set('id', response.user.id);
+			loggedInUser = Cookies.get();
+			// loggedInUser = Cookies.get('auth_token');
+			
+			console.log("loggedInUser",loggedInUser);
+
+			renderGameBoard();
+
+    	}else{
+
+    		alert('login failed: incorrect username');
     		renderLogin();
 
     	}
@@ -153,7 +197,7 @@ function renderLogin (){
 		console.log(loggedInUser);
 		render(
 
-		<Login addUserFunc={addUser}/>,
+		<Login addUserFunc={addUser} logIn={logInUser}/>,
 		document.querySelector('.app')
 		);
 	}
@@ -214,7 +258,7 @@ function logout (){
 
 }
 
-// renderLogin();
+renderLogin();
 // renderPlayBoard();
 // renderGameBoard();
-renderUploader();
+// renderUploader();

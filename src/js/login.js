@@ -6,7 +6,8 @@ export default class Login extends Component{
 
 	static propTypes = {
 
-		addUserFunc: PropTypes.func.isRequired
+		addUserFunc: PropTypes.func.isRequired,
+		logIn: PropTypes.func.isRequired
 
 	}
 
@@ -23,6 +24,22 @@ export default class Login extends Component{
 
 	}
 
+
+	loginHandler(newUser){
+
+		if(newUser.username && newUser.password){
+			this.props.logIn(newUser);
+		}else{
+
+			alert("need both a username and a password");
+
+		}
+		
+
+	}
+
+	
+
 	render(){
 
 		return(
@@ -33,7 +50,7 @@ export default class Login extends Component{
 				<br/> <br/>
 
 				<div className="login">
-					<h3>Log in/Sign up</h3>
+					<h3>Sign up</h3>
 					<SSF onData={::this.clickHandler}>
 					<br/>
 
@@ -50,6 +67,26 @@ export default class Login extends Component{
 						<button>Submit</button>
 					</SSF>
 				</div>
+
+				<div className="login">
+					<h3>Log in</h3>
+					<SSF onData={::this.loginHandler}>
+					<br/>
+
+						<label>USERNAME: </label>
+							<input type="text" name="username"></input>
+						
+						<br/><br/>
+
+						<label>PASSWORD: </label>
+							<input type="password" name="password"></input>
+						
+						<br/><br/>
+
+						<button>Submit</button>
+					</SSF>
+				</div>
+
 			</div>
 			);
 
