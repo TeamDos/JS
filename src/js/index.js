@@ -16,7 +16,6 @@ function addUser(newUser) {
 	let data = new FormData();
 	data.append('username', newUser.username);
 	data.append('password', newUser.password);
-	console.log(newUser);
 
 	ajax({
       url: 'https://safe-ridge-87798.herokuapp.com/signups',
@@ -28,14 +27,18 @@ function addUser(newUser) {
       contentType: false
     }).then( (response, statusText, { status } ) => {
 		
+    	if (status == 201 || status == 401){
 
-		console.log(status);
-    	if (status == 201){
+    		console.log("response.user =>",response.user);
+    		console.log("response.user.id =>",response.user.id);
 
-			Cookies.set('username', newUser.username);
-			loggedInUser = Cookies.get('username');
+			Cookies.set('username', response.user.username);
+			Cookies.set('auth_token', response.user.auth_token);
+			Cookies.set('id', response.user.id);
+			loggedInUser = Cookies.get();
+			// loggedInUser = Cookies.get('auth_token');
 			
-			console.log(loggedInUser);
+			console.log("loggedInUser",loggedInUser);
 
 			renderGameBoard();
 
@@ -53,9 +56,16 @@ function addUser(newUser) {
 
 function sendDataAndRenderGame(data){
 
+	console.log("data",data);
+	let auth_token = loggedInUser.auth_token;
+	console.log("loggedInUser",loggedInUser);
+	console.log("auth_token",auth_token);
 	let submission = new FormData();
-	submission.append('file', data.file);
+	submission.append('img', data.file);
+	submission.append('id', loggedInUser.id);
+	console.log("loggedInUser.id",loggedInUser.id);
 	submission.append('caption', data.caption);
+	console.log(submission);
 
 
 	ajax({
@@ -63,6 +73,7 @@ function sendDataAndRenderGame(data){
       type: 'POST',
       data: submission,
       cache: false,
+      header: auth_token,
       dataType: 'json',
       processData: false,
       contentType: false
@@ -197,11 +208,13 @@ function logout (){
 	loggedInUser = null;
 	////empty cookies for user
 	Cookies.remove('username');
+	Cookies.remove('auth_token');
+	Cookies.remove('id');
 	renderLogin();
 
 }
 
-renderLogin();
+// renderLogin();
 // renderPlayBoard();
 // renderGameBoard();
-//renderUploader();
+renderUploader();
