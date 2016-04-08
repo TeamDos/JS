@@ -72,6 +72,66 @@ function sendDataAndRenderGame(data){
     });
 }
 
+//////////GET example from class
+
+// ajax({url}).then(data => {
+//     NProgress.done();
+//     ReactDOM.render(
+//       <UserList
+//       users={data}
+//       onUserSelect={renderDetails}
+//       onUserRemove={removeAndRender}
+//       onNew={renderAdd}/>
+//       , document.querySelector('.app')
+//     );
+//   });
+
+// }
+
+function stageGame (){
+
+	ajax({
+      url: 'https://safe-ridge-87798.herokuapp.com/game_data',
+      type: 'GET',
+      data: data,
+      cache: false,
+      dataType: 'json',
+      processData: false,
+      contentType: false
+    }).then( data => {
+
+	render(
+
+		<PlayBoard gameData={ data } onGameOver={renderLeaderboard}/>,
+		document.querySelector('.app')
+	);
+
+	});
+}
+
+
+function getLeaderboardData (){
+
+	ajax({
+      url: 'https://safe-ridge-87798.herokuapp.com/game_data',
+      type: 'GET',
+      data: data,
+      cache: false,
+      dataType: 'json',
+      processData: false,
+      contentType: false
+    }).then( data => {
+    	
+    	render(
+
+		<Leaderboard leaderboardData={ data } playAgain={renderGameBoard}/>,
+		document.querySelector('.app')
+		
+	);
+    });
+
+}
+
 function renderLogin (){
 
 	if (Cookies.get('username')){
@@ -95,36 +155,11 @@ function renderGameBoard (){
 
 	render(
 
-		<GameBoard toUpload={renderUploader} toLogout={logout} countdown={timer} startGame={renderPlayBoard}/>,
+		<GameBoard toUpload={renderUploader} toLogout={logout} startGame={stageGame}/>,
 		document.querySelector('.app')
 	);
 
 };
-
-function timer(){x=>x}
-
-// 	let countdownTimer = setInterval(untilZero, 1000);
-// 	let t = 90;
-
-// 	function untilZero (){
-// 		t--;
-
-// 		return t;
-
-// 		if (t === 0){
-// 			clearInterval(countdownTimer);
-// 		}
-// 		}
-// 	return t;
-// 	}
-
-// function countDown(i) {
-//     var int = setInterval(() => {
-//         document.getElementById("displayDiv").innerHTML = "Number: " + i;
-//         i-- || clearInterval(int);  //if i is 0, then stop the interval
-//     }, 1000);
-// }
-// countDown(5);
 
 
 function renderUploader (){
@@ -137,15 +172,25 @@ function renderUploader (){
 
 };
 
-function renderPlayBoard (){
+// function renderLeaderboard(){
 
-	render(
+// 	render(
 
-		<PlayBoard />,
-		document.querySelector('.app')
-	);
+// 		<Leaderboard leaderboardData={getLeaderboardData} playAgain={renderGameBoard}/>,
+// 		document.querySelector('.app')
+// 	);
 
-};
+// };
+
+// function renderPlayBoard (){
+
+// 	render(
+
+// 		<PlayBoard gameData={stageGame} onGameOver={renderLeaderboard}/>,
+// 		document.querySelector('.app')
+// 	);
+
+// };
 
 function logout (){
 
@@ -156,7 +201,7 @@ function logout (){
 
 }
 
-renderLogin();
+// renderLogin();
 // renderGameBoard();
 //renderUploader();
-// renderPlayBoard ();
+renderPlayBoard ();
