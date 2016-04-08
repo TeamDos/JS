@@ -32,15 +32,37 @@ export default class GameBoard extends Component {
 	render(){
 
 		return(
+		<div className="gameboard-wrapper">
 
 			<div className="game-board">
-				<button onClick={::this.clickHandler}>Logout</button>
 
-				<h1 onClick={::this.gameInitiator}>START!</h1>
+				<div className="logo">Bongo</div>
 
-				<button onClick={::this.uploadHandler}>Upload your own image!</button>
+				<button className="logout" onClick={::this.clickHandler}>Logout</button>
+					<br/>
 
+				<div className="gameboard-flex-wrapper">
+
+
+
+				<p><i class="fa fa-globe"></i><br/>Bongo, the geo-guessing game, 
+				tests your knowledge of the world by seeing
+				if you can guess the country of famous (and sometimes not 
+				so famous) structures and sites by photo.  
+				Guess right and win 10 points,
+				Skip and lose 5 points. 
+				You're on a timer, so think fast!</p>
+
+				<br/>
+
+				<h1 onClick={::this.gameInitiator}>Start!</h1>
+
+			
+				<button className="uploader" onClick={::this.uploadHandler}>add your own question to the quiz here</button>
+
+				</div>
 			</div>
+		</div>
 
 			);
 
