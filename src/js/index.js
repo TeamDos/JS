@@ -8,6 +8,7 @@ import GameBoard from './game-board';
 import Uploader from './Uploader';
 import Cookies from 'js-cookie';
 import PlayBoard from './play-board';
+import Leaderboard from "./leaderboard";
 
 let loggedInUser = null;
 
@@ -100,14 +101,13 @@ function logInUser(newUser) {
 
 function sendDataAndRenderGame(data){
 
-	console.log("data",data);
-	let auth_token = loggedInUser.auth_token;
-	console.log("loggedInUser",loggedInUser);
-	console.log("auth_token",auth_token);
+	console.log("data =>",data);
+	let Auth_Token = loggedInUser.auth_token;
+	console.log("loggedInUser =>",loggedInUser);
 	let submission = new FormData();
 	submission.append('img', data.file);
 	submission.append('id', loggedInUser.id);
-	console.log("loggedInUser.id",loggedInUser.id);
+	console.log("loggedInUser.id =>",loggedInUser.id);
 	submission.append('caption', data.caption);
 	console.log(submission);
 
@@ -117,7 +117,7 @@ function sendDataAndRenderGame(data){
       type: 'POST',
       data: submission,
       cache: false,
-      header: auth_token,
+      headers: {"Auth-Token": Auth_Token},
       dataType: 'json',
       processData: false,
       contentType: false
@@ -143,47 +143,89 @@ function sendDataAndRenderGame(data){
 
 // }
 
-function stageGame (){
+// function stageGame (){
 
-	ajax({
-      url: 'https://safe-ridge-87798.herokuapp.com/images',
-      type: 'GET',
-      data: data,
-      cache: false,
-      dataType: 'json',
-      processData: false,
-      contentType: false
-    }).then( data => {
+// 	let URL = "http://s3-us-west-2.amazonaws.com/bongo/images/imgs/000/000/004/original/bongo-drum.jpg?1460150499";
+
+// 	ajax({ URL, type: 'GET' }).then( data => {
+
+// 		console.log("data", data);
+
+// 	render(
+
+// 		<PlayBoard gameData={ data } onGameOver={getLeaderboardData}/>,
+// 		document.querySelector('.app')
+// 	);
+
+// 	});
+// }
+let testData = [{"caption": "pyramids", img: "http://cdn.history.com/sites/2/2013/12/egyptian-pyramids-hero-H.jpeg"}, {"caption": "machu pichu", img: "http://images.nationalgeographic.com/wpf/media-live/photos/000/924/overrides/machu-picchu-urubamba-river_92484_600x450.jpg"}];
+function stageGame (){
 
 	render(
 
-		<PlayBoard gameData={ data } onGameOver={getLeaderboardData}/>,
+		<PlayBoard gameData={ testData } onGameOver={getLeaderboardData}/>,
 		document.querySelector('.app')
 	);
 
-	});
 }
 
 
+// function stageGame (){
+
+// 	let URL = "http://s3-us-west-2.amazonaws.com/bongo/images/imgs/000/000/004/original/bongo-drum.jpg?1460150499";
+
+// 	ajax({
+//       url: URL,
+//       type: 'GET',
+//       dataType: 'json',
+//       processData: false,
+//       contentType: false
+//     }).then( data => {
+
+// 		console.log("data", data);
+
+// 	render(
+
+// 		<PlayBoard gameData={ data } onGameOver={getLeaderboardData}/>,
+// 		document.querySelector('.app')
+// 	);
+
+// 	});
+// }
+
+// function getLeaderboardData (){
+
+// 	ajax({
+//       url: 'https://safe-ridge-87798.herokuapp.com/users',
+//       type: 'GET',
+//       data: data,
+//       cache: false,
+//       dataType: 'json',
+//       processData: false,
+//       contentType: false
+//     }).then( data => {
+    	
+//     	render(
+
+// 		<Leaderboard leaderboardData={ data } playAgain={renderGameBoard} addImg={renderUploader} toLogout={logout}/>,
+// 		document.querySelector('.app')
+		
+// 	);
+//     });
+
+// }
+
 function getLeaderboardData (){
 
-	ajax({
-      url: 'https://safe-ridge-87798.herokuapp.com/users',
-      type: 'GET',
-      data: data,
-      cache: false,
-      dataType: 'json',
-      processData: false,
-      contentType: false
-    }).then( data => {
+	let testLeaderboard = [ { "username": "username", "score": 55 }];
     	
     	render(
 
-		<Leaderboard leaderboardData={ data } playAgain={renderGameBoard} addImg={renderUploader} toLogout={logout}/>,
+		<Leaderboard leaderboardData={ testLeaderboard } playAgain={renderGameBoard} addImg={renderUploader} toLogout={logout}/>,
 		document.querySelector('.app')
 		
 	);
-    });
 
 }
 
@@ -221,7 +263,7 @@ function renderUploader (){
 
 	render(
 
-		<Uploader sendData={sendDataAndRenderGame} toLogout={logout}/>,
+		<Uploader sendData={sendDataAndRenderGame} toLogout={logout} backToGame={renderGameBoard}/>,
 		document.querySelector('.app')
 	);
 

@@ -6,7 +6,7 @@ export default class Countries extends Component {
 	render(){
 
 		return(
-<div>
+<select name="countries">
 			<option value="Afghanistan">Afghanistan</option>
 <option value="Åland Islands">Åland Islands</option>
 <option value="Albania">Albania</option>
@@ -256,7 +256,7 @@ export default class Countries extends Component {
 <option value="Yemen">Yemen</option>
 <option value="Zambia">Zambia</option>
 <option value="Zimbabwe">Zimbabwe</option>
-</div>
+</select>
 
 			);
 

@@ -167,7 +167,13 @@
 .playboard-wrapper{
 	height: 100vh;
 	display:flex;
-	justify-content:center;
+	justify-content: space-around;
+
+	img{
+
+		width: 700px;
+
+	}
 
 }
 

@@ -16,7 +16,7 @@ export default class PlayBoard extends Component{
 		super();
 		this.state = {
 
-			countdown: 20,
+			countdown: 10,
 			imgToDisplay: 0,
 			currentScore: 0
 
@@ -61,6 +61,7 @@ export default class PlayBoard extends Component{
 			if (countdown <= 0) {
 				countdown = 0;
 				clearInterval(countInt);
+				this.props.onGameOver();
 
 				////POST request: username and score 
 				//////render Leaderboard and play again page
@@ -77,6 +78,10 @@ export default class PlayBoard extends Component{
 		let { gameData } = this.props;
 		let { imgToDisplay } = this.state;
 
+		console.log("gameData", gameData);
+		console.log("gameData", gameData[imgToDisplay].img);
+		console.log(imgToDisplay);
+
 		return(
 			<div className="playboard-wrapper">
 
@@ -88,9 +93,9 @@ export default class PlayBoard extends Component{
 				</div>	
 				
 				<SSF onData={::this.dataHandler}>
-					
-					<img src={gameData[{ imgToDisplay }].img} alt={gameData[{ imgToDisplay }].caption}/>
-					
+					<div>
+						<img src={gameData[ imgToDisplay ].img} alt={gameData[ imgToDisplay ].caption}/>
+					</div>
 					<label>What country is this?
 						<input type="text" name="caption"></input>
 					</label>

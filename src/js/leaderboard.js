@@ -44,8 +44,8 @@ export default class Leaderboard extends Component {
 
 				<h1>Leaderboard</h1>
 
-				<ul>{
-					leaderboardData.map( user => <li>{user.username}: {user.score}</li>)}
+				<ul>
+				 	{this.props.leaderboardData.map( user => <li>{user.username}: {user.score}</li>)}
 				</ul>
 
 				<button onClick={::this.clickHandler}>Play Again</button>
