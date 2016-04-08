@@ -42,6 +42,7 @@ export default class PlayBoard extends Component{
 
 		}else{
 
+			alert("wrong answer, try again");
 			////alert incorrect answer
 
 		}
@@ -87,7 +88,7 @@ export default class PlayBoard extends Component{
 					
 					<img src={gameData[{ imgToDisplay }].img} alt={gameData[{ imgToDisplay }].caption}/>
 					
-					<label>What location is this?
+					<label>What country is this?
 						<input type="text" name="caption"></input>
 					</label>
 
