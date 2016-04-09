@@ -6,7 +6,7 @@ export default class Countries extends Component {
 	render(){
 
 		return(
-<div>
+<select name="countries">
 			<option value="Afghanistan">Afghanistan</option>
 <option value="Åland Islands">Åland Islands</option>
 <option value="Albania">Albania</option>
@@ -33,7 +33,7 @@ export default class Countries extends Component {
 <option value="Benin">Benin</option>
 <option value="Bermuda">Bermuda</option>
 <option value="Bhutan">Bhutan</option>
-<option value="Bolivia, Plurinational State of">Bolivia, Plurinational State of</option>
+<option value="Bolivia">Bolivia, Plurinational State of</option>
 <option value="Bonaire, Sint Eustatius and Saba">Bonaire, Sint Eustatius and Saba</option>
 <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
 <option value="Botswana">Botswana</option>
@@ -58,7 +58,7 @@ export default class Countries extends Component {
 <option value="Colombia">Colombia</option>
 <option value="Comoros">Comoros</option>
 <option value="Congo">Congo</option>
-<option value="Congo, the Democratic Republic of the">Congo, the Democratic Republic of the</option>
+<option value="Congo">Congo, the Democratic Republic of the</option>
 <option value="Cook Islands">Cook Islands</option>
 <option value="Costa Rica">Costa Rica</option>
 <option value="Côte d'Ivoire">Côte d'Ivoire</option>
@@ -111,7 +111,7 @@ export default class Countries extends Component {
 <option value="Iceland">Iceland</option>
 <option value="India">India</option>
 <option value="Indonesia">Indonesia</option>
-<option value="Iran, Islamic Republic of">Iran, Islamic Republic of</option>
+<option value="Iran">Iran, Islamic Republic of</option>
 <option value="Iraq">Iraq</option>
 <option value="Ireland">Ireland</option>
 <option value="Isle of Man">Isle of Man</option>
@@ -124,8 +124,6 @@ export default class Countries extends Component {
 <option value="Kazakhstan">Kazakhstan</option>
 <option value="Kenya">Kenya</option>
 <option value="Kiribati">Kiribati</option>
-<option value="Korea, Democratic People's Republic of">Korea, Democratic People's Republic of</option>
-<option value="Korea, Republic of">Korea, Republic of</option>
 <option value="Kuwait">Kuwait</option>
 <option value="Kyrgyzstan">Kyrgyzstan</option>
 <option value="Lao People's Democratic Republic">Lao People's Democratic Republic</option>
@@ -138,7 +136,7 @@ export default class Countries extends Component {
 <option value="Lithuania">Lithuania</option>
 <option value="Luxembourg">Luxembourg</option>
 <option value="Macao">Macao</option>
-<option value="Macedonia, the former Yugoslav Republic of">Macedonia, the former Yugoslav Republic of</option>
+<option value="Macedonia">Macedonia, the former Yugoslav Republic of</option>
 <option value="Madagascar">Madagascar</option>
 <option value="Malawi">Malawi</option>
 <option value="Malaysia">Malaysia</option>
@@ -151,8 +149,8 @@ export default class Countries extends Component {
 <option value="Mauritius">Mauritius</option>
 <option value="Mayotte">Mayotte</option>
 <option value="Mexico">Mexico</option>
-<option value="Micronesia, Federated States of">Micronesia, Federated States of</option>
-<option value="Moldova, Republic of">Moldova, Republic of</option>
+<option value="Micronesia">Micronesia</option>
+<option value="Moldova">Moldova</option>
 <option value="Monaco">Monaco</option>
 <option value="Mongolia">Mongolia</option>
 <option value="Montenegro">Montenegro</option>
@@ -170,13 +168,14 @@ export default class Countries extends Component {
 <option value="Niger">Niger</option>
 <option value="Nigeria">Nigeria</option>
 <option value="Niue">Niue</option>
+<option value="North Korea">North Korea, Democratic People's Republic of</option>
 <option value="Norfolk Island">Norfolk Island</option>
 <option value="Northern Mariana Islands">Northern Mariana Islands</option>
 <option value="Norway">Norway</option>
 <option value="Oman">Oman</option>
 <option value="Pakistan">Pakistan</option>
 <option value="Palau">Palau</option>
-<option value="Palestinian Territory, Occupied">Palestinian Territory, Occupied</option>
+<option value="Palestinian Territory">Palestinian Territory</option>
 <option value="Panama">Panama</option>
 <option value="Papua New Guinea">Papua New Guinea</option>
 <option value="Paraguay">Paraguay</option>
@@ -189,7 +188,7 @@ export default class Countries extends Component {
 <option value="Qatar">Qatar</option>
 <option value="Réunion">Réunion</option>
 <option value="Romania">Romania</option>
-<option value="Russian Federation">Russian Federation</option>
+<option value="Russia">Russia</option>
 <option value="Rwanda">Rwanda</option>
 <option value="Saint Barthélemy">Saint Barthélemy</option>
 <option value="Saint Helena, Ascension and Tristan da Cunha">Saint Helena, Ascension and Tristan da Cunha</option>
@@ -214,6 +213,7 @@ export default class Countries extends Component {
 <option value="Somalia">Somalia</option>
 <option value="South Africa">South Africa</option>
 <option value="South Georgia and the South Sandwich Islands">South Georgia and the South Sandwich Islands</option>
+<option value="South Korea">South Korea, Republic of</option>
 <option value="South Sudan">South Sudan</option>
 <option value="Spain">Spain</option>
 <option value="Sri Lanka">Sri Lanka</option>
@@ -224,9 +224,9 @@ export default class Countries extends Component {
 <option value="Sweden">Sweden</option>
 <option value="Switzerland">Switzerland</option>
 <option value="Syrian Arab Republic">Syrian Arab Republic</option>
-<option value="Taiwan, Province of China">Taiwan, Province of China</option>
+<option value="Taiwan">Taiwan</option>
 <option value="Tajikistan">Tajikistan</option>
-<option value="Tanzania, United Republic of">Tanzania, United Republic of</option>
+<option value="Tanzania">Tanzania</option>
 <option value="Thailand">Thailand</option>
 <option value="Timor-Leste">Timor-Leste</option>
 <option value="Togo">Togo</option>
@@ -247,7 +247,7 @@ export default class Countries extends Component {
 <option value="Uruguay">Uruguay</option>
 <option value="Uzbekistan">Uzbekistan</option>
 <option value="Vanuatu">Vanuatu</option>
-<option value="Venezuela, Bolivarian Republic of">Venezuela, Bolivarian Republic of</option>
+<option value="Venezuela">Venezuela</option>
 <option value="Viet Nam">Viet Nam</option>
 <option value="Virgin Islands, British">Virgin Islands, British</option>
 <option value="Virgin Islands, U.S.">Virgin Islands, U.S.</option>
@@ -256,7 +256,7 @@ export default class Countries extends Component {
 <option value="Yemen">Yemen</option>
 <option value="Zambia">Zambia</option>
 <option value="Zimbabwe">Zimbabwe</option>
-</div>
+</select>
 
 			);
 

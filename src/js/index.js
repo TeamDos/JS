@@ -8,6 +8,8 @@ import GameBoard from './game-board';
 import Uploader from './Uploader';
 import Cookies from 'js-cookie';
 import PlayBoard from './play-board';
+import Leaderboard from "./leaderboard";
+import _ from 'lodash';
 
 let loggedInUser = null;
 
@@ -98,16 +100,16 @@ function logInUser(newUser) {
 
 } 
 
+
 function sendDataAndRenderGame(data){
 
-	console.log("data",data);
-	let auth_token = loggedInUser.auth_token;
-	console.log("loggedInUser",loggedInUser);
-	console.log("auth_token",auth_token);
+	console.log("data =>",data);
+	let Auth_Token = loggedInUser.auth_token;
+	console.log("loggedInUser =>",loggedInUser);
 	let submission = new FormData();
 	submission.append('img', data.file);
 	submission.append('id', loggedInUser.id);
-	console.log("loggedInUser.id",loggedInUser.id);
+	console.log("loggedInUser.id =>",loggedInUser.id);
 	submission.append('caption', data.caption);
 	console.log(submission);
 
@@ -117,7 +119,7 @@ function sendDataAndRenderGame(data){
       type: 'POST',
       data: submission,
       cache: false,
-      header: auth_token,
+      headers: {"Auth-Token": Auth_Token},
       dataType: 'json',
       processData: false,
       contentType: false
@@ -143,47 +145,136 @@ function sendDataAndRenderGame(data){
 
 // }
 
-function stageGame (){
+// function stageGame (){
 
-	ajax({
-      url: 'https://safe-ridge-87798.herokuapp.com/images',
-      type: 'GET',
-      data: data,
-      cache: false,
-      dataType: 'json',
-      processData: false,
-      contentType: false
-    }).then( data => {
+// 	let URL = "http://s3-us-west-2.amazonaws.com/bongo/images/imgs/000/000/004/original/bongo-drum.jpg?1460150499";
+
+// 	ajax({ URL, type: 'GET' }).then( data => {
+
+// 		console.log("data", data);
+
+// 	render(
+
+// 		<PlayBoard gameData={ data } onGameOver={getLeaderboardData}/>,
+// 		document.querySelector('.app')
+// 	);
+
+// 	});
+// }
+let testData = [{"caption": "pyramids", img: "http://cdn.history.com/sites/2/2013/12/egyptian-pyramids-hero-H.jpeg"},
+ {"caption": "machu picchu", img: "http://www.travelandleisure.com/sites/default/files/styles/1600x1000/public/1434385487/ATTRACTIONS0615-machu-picchu.jpg?itok=H-P-lyy8"},
+ {"caption": "Petra", "img": "http://theplanetd.com/images/petra-jordan-photos-treasury.jpg"},
+ {"caption": "Stonehenge", "img": "https://upload.wikimedia.org/wikipedia/commons/3/35/Stonehenge_on_27.01.08.jpg"},
+ {"caption": "Golden Gate Bridge", "img": "https://upload.wikimedia.org/wikipedia/commons/0/0c/GoldenGateBridge-001.jpg"},
+ {"caption": "burj khalifa", "img": "http://www.burjkhalifa.ae/en/Images/home_bg_tcm186-80501.jpg"},
+ {"caption": "Crater Lake", "img": "http://www.terragalleria.com/images/np-pacific/crla80028.jpeg"}
+
+ ];
+
+ let shuffledGameData = _.shuffle(testData);
+
+function stageGame (){
 
 	render(
 
-		<PlayBoard gameData={ data } onGameOver={getLeaderboardData}/>,
+		<PlayBoard gameData={ shuffledGameData } onGameOver={getLeaderboardData}/>,
 		document.querySelector('.app')
 	);
 
-	});
 }
 
 
-function getLeaderboardData (){
+// function stageGame (){
 
-	ajax({
-      url: 'https://safe-ridge-87798.herokuapp.com/users',
-      type: 'GET',
-      data: data,
-      cache: false,
-      dataType: 'json',
-      processData: false,
-      contentType: false
-    }).then( data => {
+// 	let URL = "http://s3-us-west-2.amazonaws.com/bongo/images/imgs/000/000/004/original/bongo-drum.jpg?1460150499";
+
+// 	ajax({
+//       url: URL,
+//       type: 'GET',
+//       dataType: 'json',
+//       processData: false,
+//       contentType: false
+//     }).then( data => {
+
+// 		console.log("data", data);
+
+// 	render(
+
+// 		<PlayBoard gameData={ data } onGameOver={getLeaderboardData}/>,
+// 		document.querySelector('.app')
+// 	);
+
+// 	});
+// }
+
+// function getLeaderboardData (score){
+
+
+	/////first POST request the username and score and call the GET request in the 'then' of the first request
+
+// 	ajax({
+//       url: 'https://safe-ridge-87798.herokuapp.com/users',
+//       type: 'GET',
+//       data: data,
+//       cache: false,
+//       dataType: 'json',
+//       processData: false,
+//       contentType: false
+//     }).then( data => {
+    	
+//     	render(
+
+// 		<Leaderboard leaderboardData={ data } playAgain={renderGameBoard} addImg={renderUploader} toLogout={logout}/>,
+// 		document.querySelector('.app')
+		
+// 	);
+//     });
+
+// }
+
+function getLeaderboardData (score){
+
+	console.log("score =>",score);
+
+	let finishedGameData = {
+
+		"username": Cookies.get('username'),
+		"score": score
+	}
+
+	let testLeaderboard = [ 
+		{ "username": "username", "score": 55 },
+		{ "username": "username2", "score": 155 },
+		{ "username": "username3", "score": 5555 },
+		{ "username": "username4", "score": 55 },
+		{ "username": "username5", "score": 155 },
+		{ "username": "username6", "score": 5555 }
+	];
+
+		function sortArray(array, key) {
+	    return array.sort(function(a, b) {
+	        if(a[key] < b[key]){
+	            
+	            return 1;
+	          
+	        }else if(a[key] > b[key]){
+	          
+	            return -1;
+	          
+	        }else{
+	          return 0;
+	        };
+	    });
+	}
+
+	var sortedLeaderboard = sortArray(testLeaderboard, "score");
     	
     	render(
 
-		<Leaderboard leaderboardData={ data } playAgain={renderGameBoard} addImg={renderUploader} toLogout={logout}/>,
+		<Leaderboard leaderboardData={ testLeaderboard } playAgain={renderGameBoard} addImg={renderUploader} toLogout={logout} currentGame={finishedGameData}/>,
 		document.querySelector('.app')
 		
 	);
-    });
 
 }
 
@@ -221,7 +312,7 @@ function renderUploader (){
 
 	render(
 
-		<Uploader sendData={sendDataAndRenderGame} toLogout={logout}/>,
+		<Uploader sendData={sendDataAndRenderGame} toLogout={logout} backToGame={renderGameBoard}/>,
 		document.querySelector('.app')
 	);
 

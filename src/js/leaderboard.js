@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import Cookies from 'js-cookie';
 
 export default class Leaderboard extends Component {
 
@@ -7,7 +8,8 @@ export default class Leaderboard extends Component {
 		leaderboardData: PropTypes.array.isRequired,
 		playAgain: PropTypes.func.isRequired,
 		addImg: PropTypes.func.isRequired,
-		toLogout: PropTypes.func.isRequired
+		toLogout: PropTypes.func.isRequired,
+		currentGame: PropTypes.object.isRequired
 
 	}
 
@@ -42,10 +44,12 @@ export default class Leaderboard extends Component {
 			<div>
 				<button onClick={::this.logoutHandler}>Logout</button>
 
+				<div>Congrats {this.props.currentGame.username}, you finished with a score of {this.props.currentGame.score}! See how you stack up against others below.</div>
+
 				<h1>Leaderboard</h1>
 
-				<ul>{
-					leaderboardData.map( user => <li>{user.username}: {user.score}</li>)}
+				<ul>
+				 	{this.props.leaderboardData.map( user => <li key={user.username + user.score}>{user.username}: {user.score}</li>)}
 				</ul>
 
 				<button onClick={::this.clickHandler}>Play Again</button>

@@ -16,9 +16,10 @@ export default class PlayBoard extends Component{
 		super();
 		this.state = {
 
-			countdown: 20,
+			countdown: 30,
 			imgToDisplay: 0,
-			currentScore: 0
+			currentScore: 0,
+			input: ""
 
 		}
 
@@ -26,10 +27,10 @@ export default class PlayBoard extends Component{
 
 	dataHandler(data){
 
-		let { imgToDisplay, currentScore } = this.state;
+		let { imgToDisplay, currentScore, input } = this.state;
 		let { gameData } = this.props;
 
-		if(data.caption === gameData[imgToDisplay].caption){
+		if(data.caption.toLowerCase() === gameData[imgToDisplay].caption.toLowerCase()){
 
 			////go to next img
 
@@ -37,8 +38,10 @@ export default class PlayBoard extends Component{
 			//////this might need to go in setState //////////////////////////////////////////
 			currentScore +=10;
 			imgToDisplay++;
+			// input = "";
 			this.setState({ imgToDisplay });
 			this.setState({ currentScore });
+			this.setState({ input: "" });
 
 
 			/////need to think through what clears the input field as well
@@ -61,21 +64,44 @@ export default class PlayBoard extends Component{
 			if (countdown <= 0) {
 				countdown = 0;
 				clearInterval(countInt);
+				///POST request: username and score
 
-				////POST request: username and score 
-				//////render Leaderboard and play again page
-				console.log(this);
-
+				this.props.onGameOver(this.state.currentScore);
 
 			}
 			this.setState({countdown});
 		}, 1000);
 	}
 
+	changeHandler(event){
+
+		this.setState( { input: event.target.value });
+
+	}
+
+	clickHandler(){
+
+		let { currentScore, imgToDisplay } = this.state;
+		currentScore -=5;
+		imgToDisplay++;
+
+		this.setState({
+
+				currentScore,
+				imgToDisplay
+
+			});
+
+	}
+
 	render(){
 
 		let { gameData } = this.props;
 		let { imgToDisplay } = this.state;
+
+		console.log("gameData", gameData);
+		console.log("gameData", gameData[imgToDisplay].img);
+		console.log(imgToDisplay);
 
 		return(
 			<div className="playboard-wrapper">
@@ -84,15 +110,17 @@ export default class PlayBoard extends Component{
 				
 					TIME LEFT:<br/>
 					<span className="countdown-numbers"> {this.state.countdown}</span> seconds
-
+					<button onClick={::this.clickHandler}>SKIP</button>
 				</div>	
 				
+				
+
 				<SSF onData={::this.dataHandler}>
-					
-					<img src={gameData[{ imgToDisplay }].img} alt={gameData[{ imgToDisplay }].caption}/>
-					
+					<div>
+						<img src={gameData[ imgToDisplay ].img} alt={gameData[ imgToDisplay ].caption}/>
+					</div>
 					<label>What country is this?
-						<input type="text" name="caption"></input>
+						<input type="text" name="caption" autocomplete="off" value={this.state.input} onChange={::this.changeHandler}></input>
 					</label>
 
 					<button>SUBMIT</button>

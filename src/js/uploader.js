@@ -8,7 +8,8 @@ export default class Uploader extends Component{
 	static propTypes = {
 
 		sendData: PropTypes.func.isRequired,
-		toLogout: PropTypes.func.isRequired
+		toLogout: PropTypes.func.isRequired,
+		backToGame: PropTypes.func.isRequired
 
 	}
 
@@ -46,12 +47,21 @@ export default class Uploader extends Component{
 
 	}
 
+	returnToGameHandler(){
+
+		this.props.backToGame();
+
+	}
+
 	render(){
 
 		return(
 
 			<div className="uploader-wrapper">
 				<button className="logout" onClick={::this.clickHandler}>Logout</button>
+			<div>
+				<button onClick={::this.returnToGameHandler}>Play Game</button>
+				<button onClick={::this.clickHandler}>Logout</button>
 
 				<div className="uploader-wrapper-flex">
 				<SSF onData={::this.dataHandler}>
@@ -313,6 +323,9 @@ export default class Uploader extends Component{
 <option value="Zambia">Zambia</option>
 <option value="Zimbabwe">Zimbabwe</option>
 					</select>
+=======
+					<Countries></Countries>
+>>>>>>> 0ba1a7f8b2769b8fe094eb5e98f6750f65d4da17
 
 					<label>Enter caption below:
 						<input type="text" name="caption"></input>
