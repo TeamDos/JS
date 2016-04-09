@@ -120,7 +120,7 @@ export default class PlayBoard extends Component{
 						<img src={gameData[ imgToDisplay ].img} alt={gameData[ imgToDisplay ].caption}/>
 					</div>
 					<label>What country is this?
-						<input type="text" name="caption" value={this.state.input} onChange={::this.changeHandler}></input>
+						<input type="text" name="caption" autocomplete="off" value={this.state.input} onChange={::this.changeHandler}></input>
 					</label>
 
 					<button>SUBMIT</button>
