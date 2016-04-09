@@ -50,7 +50,7 @@ export default class Login extends Component{
 				<br/> <br/>
 
 				<div className="login">
-					<h3>Sign up</h3>
+					<h3><b>Sign up</b></h3>
 					<SSF onData={::this.clickHandler}>
 					<br/>
 
@@ -66,10 +66,9 @@ export default class Login extends Component{
 
 						<button>Submit</button>
 					</SSF>
-				</div>
+					<br/><br/>
 
-				<div className="login">
-					<h3>Log in</h3>
+					<h3><b>Log in</b></h3>
 					<SSF onData={::this.loginHandler}>
 					<br/>
 
@@ -86,7 +85,6 @@ export default class Login extends Component{
 						<button>Submit</button>
 					</SSF>
 				</div>
-
 			</div>
 			);
 

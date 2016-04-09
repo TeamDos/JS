@@ -50,9 +50,10 @@ export default class Uploader extends Component{
 
 		return(
 
-			<div>
-				<button onClick={::this.clickHandler}>Logout</button>
+			<div className="uploader-wrapper">
+				<button className="logout" onClick={::this.clickHandler}>Logout</button>
 
+				<div className="uploader-wrapper-flex">
 				<SSF onData={::this.dataHandler}>
 
 					<h1>Uploader Page</h1>
@@ -62,7 +63,7 @@ export default class Uploader extends Component{
 					</Dropzone>
 
 					<select>
-									<option value="Afghanistan">Afghanistan</option>
+<option value="Afghanistan">Afghanistan</option>
 <option value="Åland Islands">Åland Islands</option>
 <option value="Albania">Albania</option>
 <option value="Algeria">Algeria</option>
@@ -322,6 +323,7 @@ export default class Uploader extends Component{
 
 				</SSF>
 			</div>
+		</div>
 
 			);
 

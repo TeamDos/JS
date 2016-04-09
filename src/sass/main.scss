@@ -189,13 +189,19 @@
 ///////////////UPLOADER////////////////
 
 
+.uploader-wrapper{
+	height:100vh;
+}
+
+.uploader-wrapper h1{
+	margin:0;
+}	
 
 
-
-
-
-
-
+.uploader-wrapper-flex{
+	display:flex;
+	justify-content:center;
+}
 
 
 
