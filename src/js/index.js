@@ -172,7 +172,7 @@ let testData = [{"caption": "pyramids", img: "http://cdn.history.com/sites/2/201
  {"caption": "Petra", "img": "http://theplanetd.com/images/petra-jordan-photos-treasury.jpg"},
  {"caption": "Stonehenge", "img": "https://upload.wikimedia.org/wikipedia/commons/3/35/Stonehenge_on_27.01.08.jpg"},
  {"caption": "Golden Gate Bridge", "img": "https://upload.wikimedia.org/wikipedia/commons/0/0c/GoldenGateBridge-001.jpg"},
- {"caption": "Burj Khalifa", "img": "https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=imgres&cd=&ved=0ahUKEwjMvrHxlYLMAhXBNSYKHS4PCeQQjBwIBA&url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fen%2F9%2F93%2FBurj_Khalifa.jpg&psig=AFQjCNHVF6RqBQ9reRf6DGWOJL_a3vOp4w&ust=1460312435628546"},
+ {"caption": "burj khalifa", "img": "http://www.burjkhalifa.ae/en/Images/home_bg_tcm186-80501.jpg"},
  {"caption": "Crater Lake", "img": "http://www.terragalleria.com/images/np-pacific/crla80028.jpeg"}
 
  ];
@@ -241,6 +241,13 @@ function stageGame (){
 function getLeaderboardData (score){
 
 	console.log("score =>",score);
+
+	let finishedGameData = {
+
+		"username": Cookies.get('username'),
+		"score": score
+	}
+
 	let testLeaderboard = [ 
 		{ "username": "username", "score": 55 },
 		{ "username": "username2", "score": 155 },
@@ -270,7 +277,7 @@ function getLeaderboardData (score){
     	
     	render(
 
-		<Leaderboard leaderboardData={ testLeaderboard } playAgain={renderGameBoard} addImg={renderUploader} toLogout={logout}/>,
+		<Leaderboard leaderboardData={ testLeaderboard } playAgain={renderGameBoard} addImg={renderUploader} toLogout={logout} currentGame={finishedGameData}/>,
 		document.querySelector('.app')
 		
 	);

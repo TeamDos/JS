@@ -16,7 +16,7 @@ export default class PlayBoard extends Component{
 		super();
 		this.state = {
 
-			countdown: 10,
+			countdown: 30,
 			imgToDisplay: 0,
 			currentScore: 0,
 			input: ""

@@ -8,7 +8,8 @@ export default class Leaderboard extends Component {
 		leaderboardData: PropTypes.array.isRequired,
 		playAgain: PropTypes.func.isRequired,
 		addImg: PropTypes.func.isRequired,
-		toLogout: PropTypes.func.isRequired
+		toLogout: PropTypes.func.isRequired,
+		currentGame: PropTypes.object.isRequired
 
 	}
 
@@ -42,6 +43,8 @@ export default class Leaderboard extends Component {
 
 			<div>
 				<button onClick={::this.logoutHandler}>Logout</button>
+
+				<div>Congrats {this.props.currentGame.username}, you finished with a score of {this.props.currentGame.score}! See how you stack up against others below.</div>
 
 				<h1>Leaderboard</h1>
 
