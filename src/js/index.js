@@ -9,6 +9,7 @@ import Uploader from './Uploader';
 import Cookies from 'js-cookie';
 import PlayBoard from './play-board';
 import Leaderboard from "./leaderboard";
+import _ from 'lodash';
 
 let loggedInUser = null;
 
@@ -168,13 +169,21 @@ function sendDataAndRenderGame(data){
 // }
 let testData = [{"caption": "pyramids", img: "http://cdn.history.com/sites/2/2013/12/egyptian-pyramids-hero-H.jpeg"},
  {"caption": "machu picchu", img: "http://www.travelandleisure.com/sites/default/files/styles/1600x1000/public/1434385487/ATTRACTIONS0615-machu-picchu.jpg?itok=H-P-lyy8"},
- {"caption": "pyramids", img: "http://cdn.history.com/sites/2/2013/12/egyptian-pyramids-hero-H.jpeg"},
- {"caption": "machu picchu", img: "http://www.travelandleisure.com/sites/default/files/styles/1600x1000/public/1434385487/ATTRACTIONS0615-machu-picchu.jpg?itok=H-P-lyy8"}];
+ {"caption": "Petra", "img": "http://theplanetd.com/images/petra-jordan-photos-treasury.jpg"},
+ {"caption": "Stonehenge", "img": "https://upload.wikimedia.org/wikipedia/commons/3/35/Stonehenge_on_27.01.08.jpg"},
+ {"caption": "Golden Gate Bridge", "img": "https://upload.wikimedia.org/wikipedia/commons/0/0c/GoldenGateBridge-001.jpg"},
+ {"caption": "Burj Khalifa", "img": "https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=imgres&cd=&ved=0ahUKEwjMvrHxlYLMAhXBNSYKHS4PCeQQjBwIBA&url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fen%2F9%2F93%2FBurj_Khalifa.jpg&psig=AFQjCNHVF6RqBQ9reRf6DGWOJL_a3vOp4w&ust=1460312435628546"},
+ {"caption": "Crater Lake", "img": "http://www.terragalleria.com/images/np-pacific/crla80028.jpeg"}
+
+ ];
+
+ let shuffledGameData = _.shuffle(testData);
+
 function stageGame (){
 
 	render(
 
-		<PlayBoard gameData={ testData } onGameOver={getLeaderboardData}/>,
+		<PlayBoard gameData={ shuffledGameData } onGameOver={getLeaderboardData}/>,
 		document.querySelector('.app')
 	);
 
