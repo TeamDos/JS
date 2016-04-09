@@ -323,9 +323,7 @@ export default class Uploader extends Component{
 <option value="Zambia">Zambia</option>
 <option value="Zimbabwe">Zimbabwe</option>
 					</select>
-=======
 					<Countries></Countries>
->>>>>>> 0ba1a7f8b2769b8fe094eb5e98f6750f65d4da17
 
 					<label>Enter caption below:
 						<input type="text" name="caption"></input>
@@ -337,6 +335,7 @@ export default class Uploader extends Component{
 				</SSF>
 			</div>
 		</div>
+	</div>
 
 			);
 

@@ -16,7 +16,7 @@ export default class PlayBoard extends Component{
 		super();
 		this.state = {
 
-			countdown: 30,
+			countdown: 100,
 			imgToDisplay: 0,
 			currentScore: 0,
 			input: ""
@@ -108,10 +108,10 @@ export default class PlayBoard extends Component{
 
 				<div className="countdown">
 				
-					TIME LEFT:<br/>
-					<span className="countdown-numbers"> {this.state.countdown}</span> seconds
-					<button onClick={::this.clickHandler}>SKIP</button>
+					TIME LEFT <br/>
+					<span className="countdown-numbers"> {this.state.countdown}</span>
 				</div>	
+					<button className="skip" onClick={::this.clickHandler}>Skip ></button>
 				
 				
 
@@ -119,11 +119,16 @@ export default class PlayBoard extends Component{
 					<div>
 						<img src={gameData[ imgToDisplay ].img} alt={gameData[ imgToDisplay ].caption}/>
 					</div>
-					<label>What country is this?
+
+					<div  className="answer-form">
+					<label>What country is this in? <br/><br/>
 						<input type="text" name="caption" autocomplete="off" value={this.state.input} onChange={::this.changeHandler}></input>
 					</label>
+					<br/>
+					<br/>
 
-					<button>SUBMIT</button>
+					<button className="submit">Submit</button>
+					</div>
 
 				</SSF>
 				
