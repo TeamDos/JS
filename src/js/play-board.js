@@ -16,7 +16,7 @@ export default class PlayBoard extends Component{
 		super();
 		this.state = {
 
-			countdown: 100,
+			countdown: 5,
 			imgToDisplay: 0,
 			currentScore: 0,
 			input: ""
@@ -111,7 +111,7 @@ export default class PlayBoard extends Component{
 					TIME LEFT <br/>
 					<span className="countdown-numbers"> {this.state.countdown}</span>
 				</div>	
-					<button className="skip" onClick={::this.clickHandler}>Skip ></button>
+					<button className="skip" onClick={::this.clickHandler}>Skip <i className="fa fa-arrow-right"></i></button>
 				
 				
 

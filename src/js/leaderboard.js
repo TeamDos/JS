@@ -41,10 +41,16 @@ export default class Leaderboard extends Component {
 
 		return(
 
-			<div>
-				<button onClick={::this.logoutHandler}>Logout</button>
+			<div className="leaderboard-wrapper">
 
-				<div>Congrats {this.props.currentGame.username}, you finished with a score of {this.props.currentGame.score}! See how you stack up against others below.</div>
+				<button className="logout" onClick={::this.logoutHandler}>Logout</button>
+
+				<div className="leaderboard-flex">
+
+
+				<div className="congrats">Congrats {this.props.currentGame.username}, 
+				<br/>you finished with a score of {this.props.currentGame.score}! See how you stack up against others below.</div>
+
 
 				<h1>Leaderboard</h1>
 
@@ -52,10 +58,10 @@ export default class Leaderboard extends Component {
 				 	{this.props.leaderboardData.map( user => <li key={user.username + user.score}>{user.username}: {user.score}</li>)}
 				</ul>
 
-				<button onClick={::this.clickHandler}>Play Again</button>
+				<button className="leaderboard-playagain" onClick={::this.clickHandler}>Play Again</button>
 
-				<button onClick={::this.addHandler}>Add a famous landmark to the game!</button>
-
+				<button className="leaderboard-to-uploader" onClick={::this.addHandler}>Add a famous landmark to the game!</button>
+				</div>
 			</div>
 
 			);

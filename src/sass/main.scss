@@ -270,6 +270,69 @@
 }
 
 
+///////////////LEADERBOARD////////////////
+
+
+.leaderboard-wrapper{
+	height:100vh;
+
+}
+
+.leaderboard-flex{
+	width:500px;
+	margin:auto;
+	padding-top: 150px;
+
+
+}
+
+.congrats{
+
+}
+
+
+.leaderboard-wrapper  h1{
+	font-family: 'Pacifico', cursive;
+	text-align: center;
+}
+
+.leaderboard-wrapper ul {
+	list-style:none;
+
+}
+
+
+
+.leaderboard-playagain{
+	font-family: 'Pacifico', cursive;
+	border-radius: 10px;	
+	border:none;
+	padding-left: 10px;
+	padding-right: 10px;
+	width: 100px;
+
+}
+
+
+
+.leaderboard-to-uploader{
+	font-family: 'Pacifico', cursive;
+	border-radius: 10px;	
+	border:none;
+	padding-left: 10px;
+	padding-right: 10px;
+	width: 300px;
+
+}
+
+
+
+
+
+
+
+
+
 
 
 

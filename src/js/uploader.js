@@ -73,6 +73,9 @@ export default class Uploader extends Component{
 
 					</Dropzone>
 
+
+
+
 					<select>
 <option value="Afghanistan">Afghanistan</option>
 <option value="Åland Islands">Åland Islands</option>
@@ -338,24 +341,24 @@ export default class Uploader extends Component{
 		</div>
 	</div>
 
-					<SSF onData={::this.dataHandler}>
+					// <SSF onData={::this.dataHandler}>
 
-						<h1>Uploader Page</h1>
+					// 	<h1>Uploader Page</h1>
 
-						<Dropzone onDrop={::this.dropHandler}>
+					// 	<Dropzone onDrop={::this.dropHandler}>
 
-						</Dropzone>
+					// 	</Dropzone>
 
-						<Countries></Countries>
+					// 	<Countries></Countries>
 
-						<label>Enter caption below:
-							<input type="text" name="caption"></input>
-						</label>
+					// 	<label>Enter caption below:
+					// 		<input type="text" name="caption"></input>
+					// 	</label>
 
-						<button>Submit</button>
+					// 	<button>Submit</button>
 
 
-					</SSF>
+					// </SSF>
 
 
 			);
