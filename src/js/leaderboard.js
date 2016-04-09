@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import Cookies from 'js-cookie';
 
 export default class Leaderboard extends Component {
 
@@ -45,7 +46,7 @@ export default class Leaderboard extends Component {
 				<h1>Leaderboard</h1>
 
 				<ul>
-				 	{this.props.leaderboardData.map( user => <li>{user.username}: {user.score}</li>)}
+				 	{this.props.leaderboardData.map( user => <li key={user.username + user.score}>{user.username}: {user.score}</li>)}
 				</ul>
 
 				<button onClick={::this.clickHandler}>Play Again</button>

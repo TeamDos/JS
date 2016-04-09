@@ -99,6 +99,13 @@ function logInUser(newUser) {
 
 } 
 
+
+function updateLeaderboard (data){
+
+
+
+}
+
 function sendDataAndRenderGame(data){
 
 	console.log("data =>",data);
@@ -159,7 +166,10 @@ function sendDataAndRenderGame(data){
 
 // 	});
 // }
-let testData = [{"caption": "pyramids", img: "http://cdn.history.com/sites/2/2013/12/egyptian-pyramids-hero-H.jpeg"}, {"caption": "machu pichu", img: "http://images.nationalgeographic.com/wpf/media-live/photos/000/924/overrides/machu-picchu-urubamba-river_92484_600x450.jpg"}];
+let testData = [{"caption": "pyramids", img: "http://cdn.history.com/sites/2/2013/12/egyptian-pyramids-hero-H.jpeg"},
+ {"caption": "machu picchu", img: "http://www.travelandleisure.com/sites/default/files/styles/1600x1000/public/1434385487/ATTRACTIONS0615-machu-picchu.jpg?itok=H-P-lyy8"},
+ {"caption": "pyramids", img: "http://cdn.history.com/sites/2/2013/12/egyptian-pyramids-hero-H.jpeg"},
+ {"caption": "machu picchu", img: "http://www.travelandleisure.com/sites/default/files/styles/1600x1000/public/1434385487/ATTRACTIONS0615-machu-picchu.jpg?itok=H-P-lyy8"}];
 function stageGame (){
 
 	render(
@@ -194,7 +204,10 @@ function stageGame (){
 // 	});
 // }
 
-// function getLeaderboardData (){
+// function getLeaderboardData (score){
+
+
+	/////first POST request the username and score and call the GET request in the 'then' of the first request
 
 // 	ajax({
 //       url: 'https://safe-ridge-87798.herokuapp.com/users',
@@ -216,9 +229,35 @@ function stageGame (){
 
 // }
 
-function getLeaderboardData (){
+function getLeaderboardData (score){
 
-	let testLeaderboard = [ { "username": "username", "score": 55 }];
+	console.log("score =>",score);
+	let testLeaderboard = [ 
+		{ "username": "username", "score": 55 },
+		{ "username": "username2", "score": 155 },
+		{ "username": "username3", "score": 5555 },
+		{ "username": "username4", "score": 55 },
+		{ "username": "username5", "score": 155 },
+		{ "username": "username6", "score": 5555 }
+	];
+
+		function sortArray(array, key) {
+	    return array.sort(function(a, b) {
+	        if(a[key] < b[key]){
+	            
+	            return 1;
+	          
+	        }else if(a[key] > b[key]){
+	          
+	            return -1;
+	          
+	        }else{
+	          return 0;
+	        };
+	    });
+	}
+
+	var sortedLeaderboard = sortArray(testLeaderboard, "score");
     	
     	render(
 

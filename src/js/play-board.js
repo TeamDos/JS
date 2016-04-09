@@ -38,10 +38,10 @@ export default class PlayBoard extends Component{
 			//////this might need to go in setState //////////////////////////////////////////
 			currentScore +=10;
 			imgToDisplay++;
-			input = "";
+			// input = "";
 			this.setState({ imgToDisplay });
 			this.setState({ currentScore });
-			this.setState({ input });
+			this.setState({ input: "" });
 
 
 			/////need to think through what clears the input field as well
@@ -64,12 +64,9 @@ export default class PlayBoard extends Component{
 			if (countdown <= 0) {
 				countdown = 0;
 				clearInterval(countInt);
-				this.props.onGameOver();
+				///POST request: username and score
 
-				////POST request: username and score 
-				//////render Leaderboard and play again page
-				console.log(this);
-
+				this.props.onGameOver(this.state.currentScore);
 
 			}
 			this.setState({countdown});
@@ -79,6 +76,21 @@ export default class PlayBoard extends Component{
 	changeHandler(event){
 
 		this.setState( { input: event.target.value });
+
+	}
+
+	clickHandler(){
+
+		let { currentScore, imgToDisplay } = this.state;
+		currentScore -=5;
+		imgToDisplay++;
+
+		this.setState({
+
+				currentScore,
+				imgToDisplay
+
+			});
 
 	}
 
@@ -98,9 +110,11 @@ export default class PlayBoard extends Component{
 				
 					TIME LEFT:<br/>
 					<span className="countdown-numbers"> {this.state.countdown}</span> seconds
-
+					<button onClick={::this.clickHandler}>SKIP</button>
 				</div>	
 				
+				
+
 				<SSF onData={::this.dataHandler}>
 					<div>
 						<img src={gameData[ imgToDisplay ].img} alt={gameData[ imgToDisplay ].caption}/>
