@@ -111,7 +111,7 @@ export default class PlayBoard extends Component{
 					TIME LEFT <br/>
 					<span className="countdown-numbers"> {this.state.countdown}</span>
 				</div>	
-					<button className="skip" onClick={::this.clickHandler}>Skip ></button>
+					<button className="skip" onClick={::this.clickHandler}>Skip</button>
 				
 				
 
