@@ -101,12 +101,6 @@ function logInUser(newUser) {
 } 
 
 
-function updateLeaderboard (data){
-
-
-
-}
-
 function sendDataAndRenderGame(data){
 
 	console.log("data =>",data);
