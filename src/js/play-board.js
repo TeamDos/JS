@@ -30,7 +30,7 @@ export default class PlayBoard extends Component{
 		let { imgToDisplay, currentScore, input } = this.state;
 		let { gameData } = this.props;
 
-		if(data.caption === gameData[imgToDisplay].caption){
+		if(data.caption.toLowerCase() === gameData[imgToDisplay].caption.toLowerCase()){
 
 			////go to next img
 
