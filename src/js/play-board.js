@@ -115,12 +115,12 @@ export default class PlayBoard extends Component{
 				
 				
 
-				<SSF onData={::this.dataHandler}>
+				<SSF onData={::this.dataHandler} autocomplete="new-password">
 					<div>
 						<img src={gameData[ imgToDisplay ].img} alt={gameData[ imgToDisplay ].caption}/>
 					</div>
 					<label>What country is this?
-						<input type="text" name="caption" autocomplete="off" value={this.state.input} onChange={::this.changeHandler}></input>
+						<input type="text" name="caption" autocomplete="new-password" value={this.state.input} onChange={::this.changeHandler}></input>
 					</label>
 
 					<button>SUBMIT</button>
