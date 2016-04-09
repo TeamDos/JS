@@ -111,11 +111,12 @@ export default class PlayBoard extends Component{
 					TIME LEFT <br/>
 					<span className="countdown-numbers"> {this.state.countdown}</span>
 				</div>	
+
 					<button className="skip" onClick={::this.clickHandler}>Skip <i className="fa fa-arrow-right"></i></button>
 				
 				
 
-				<SSF onData={::this.dataHandler}>
+				<SSF onData={::this.dataHandler} autocomplete="new-password">
 					<div>
 						<img src={gameData[ imgToDisplay ].img} alt={gameData[ imgToDisplay ].caption}/>
 					</div>
