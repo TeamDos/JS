@@ -64,6 +64,7 @@ export default class Uploader extends Component{
 				<button onClick={::this.clickHandler}>Logout</button>
 
 				<div className="uploader-wrapper-flex">
+
 				<SSF onData={::this.dataHandler}>
 
 					<h1>Uploader Page</h1>
@@ -336,6 +337,26 @@ export default class Uploader extends Component{
 			</div>
 		</div>
 	</div>
+
+					<SSF onData={::this.dataHandler}>
+
+						<h1>Uploader Page</h1>
+
+						<Dropzone onDrop={::this.dropHandler}>
+
+						</Dropzone>
+
+						<Countries></Countries>
+
+						<label>Enter caption below:
+							<input type="text" name="caption"></input>
+						</label>
+
+						<button>Submit</button>
+
+
+					</SSF>
+
 
 			);
 
