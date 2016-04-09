@@ -18,7 +18,8 @@ export default class PlayBoard extends Component{
 
 			countdown: 10,
 			imgToDisplay: 0,
-			currentScore: 0
+			currentScore: 0,
+			input: ""
 
 		}
 
@@ -26,7 +27,7 @@ export default class PlayBoard extends Component{
 
 	dataHandler(data){
 
-		let { imgToDisplay, currentScore } = this.state;
+		let { imgToDisplay, currentScore, input } = this.state;
 		let { gameData } = this.props;
 
 		if(data.caption === gameData[imgToDisplay].caption){
@@ -37,8 +38,10 @@ export default class PlayBoard extends Component{
 			//////this might need to go in setState //////////////////////////////////////////
 			currentScore +=10;
 			imgToDisplay++;
+			input = "";
 			this.setState({ imgToDisplay });
 			this.setState({ currentScore });
+			this.setState({ input });
 
 
 			/////need to think through what clears the input field as well
@@ -73,6 +76,12 @@ export default class PlayBoard extends Component{
 		}, 1000);
 	}
 
+	changeHandler(event){
+
+		this.setState( { input: event.target.value });
+
+	}
+
 	render(){
 
 		let { gameData } = this.props;
@@ -97,7 +106,7 @@ export default class PlayBoard extends Component{
 						<img src={gameData[ imgToDisplay ].img} alt={gameData[ imgToDisplay ].caption}/>
 					</div>
 					<label>What country is this?
-						<input type="text" name="caption"></input>
+						<input type="text" name="caption" value={this.state.input} onChange={::this.changeHandler}></input>
 					</label>
 
 					<button>SUBMIT</button>
