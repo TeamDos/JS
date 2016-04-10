@@ -109,6 +109,7 @@ function sendDataAndRenderGame(data){
 	let submission = new FormData();
 	submission.append('img', data.file);
 	submission.append('id', loggedInUser.id);
+	submission.append('country', data.country);
 	console.log("loggedInUser.id =>",loggedInUser.id);
 	submission.append('caption', data.caption);
 	console.log(submission);
@@ -161,13 +162,13 @@ function sendDataAndRenderGame(data){
 
 // 	});
 // }
-let testData = [{"caption": "pyramids", img: "http://cdn.history.com/sites/2/2013/12/egyptian-pyramids-hero-H.jpeg"},
- {"caption": "machu picchu", img: "http://www.travelandleisure.com/sites/default/files/styles/1600x1000/public/1434385487/ATTRACTIONS0615-machu-picchu.jpg?itok=H-P-lyy8"},
- {"caption": "Petra", "img": "http://theplanetd.com/images/petra-jordan-photos-treasury.jpg"},
- {"caption": "Stonehenge", "img": "https://upload.wikimedia.org/wikipedia/commons/3/35/Stonehenge_on_27.01.08.jpg"},
- {"caption": "Golden Gate Bridge", "img": "https://upload.wikimedia.org/wikipedia/commons/0/0c/GoldenGateBridge-001.jpg"},
- {"caption": "burj khalifa", "img": "http://www.burjkhalifa.ae/en/Images/home_bg_tcm186-80501.jpg"},
- {"caption": "Crater Lake", "img": "http://www.terragalleria.com/images/np-pacific/crla80028.jpeg"}
+let testData = [{"caption": "pyramids", "country": "Egypt", img: "http://cdn.history.com/sites/2/2013/12/egyptian-pyramids-hero-H.jpeg"},
+ {"caption": "machu picchu", "country": "Peru", img: "http://www.travelandleisure.com/sites/default/files/styles/1600x1000/public/1434385487/ATTRACTIONS0615-machu-picchu.jpg?itok=H-P-lyy8"},
+ {"caption": "Petra", "country": "Jordan", "img": "http://theplanetd.com/images/petra-jordan-photos-treasury.jpg"},
+ {"caption": "Stonehenge", "country": "England", "img": "https://upload.wikimedia.org/wikipedia/commons/3/35/Stonehenge_on_27.01.08.jpg"},
+ {"caption": "Golden Gate Bridge", "country": "United States", "img": "https://upload.wikimedia.org/wikipedia/commons/0/0c/GoldenGateBridge-001.jpg"},
+ {"caption": "burj khalifa", "country": "Dubai", "img": "http://www.burjkhalifa.ae/en/Images/home_bg_tcm186-80501.jpg"},
+ {"caption": "Crater Lake", "country": "United States", "img": "http://www.terragalleria.com/images/np-pacific/crla80028.jpeg"}
 
  ];
 

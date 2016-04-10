@@ -16,7 +16,7 @@ export default class PlayBoard extends Component{
 		super();
 		this.state = {
 
-			countdown: 5,
+			countdown: 20,
 			imgToDisplay: 0,
 			currentScore: 0,
 			input: ""
@@ -30,7 +30,7 @@ export default class PlayBoard extends Component{
 		let { imgToDisplay, currentScore, input } = this.state;
 		let { gameData } = this.props;
 
-		if(data.caption.toLowerCase() === gameData[imgToDisplay].caption.toLowerCase()){
+		if(data.country.toLowerCase() === gameData[imgToDisplay].country.toLowerCase()){
 
 			////go to next img
 
@@ -125,7 +125,7 @@ export default class PlayBoard extends Component{
 
 					<div  className="answer-form">
 					<label>What country is this in? <br/><br/>
-						<input type="text" name="caption" autocomplete="off" value={this.state.input} onChange={::this.changeHandler}></input>
+						<input type="text" name="country" autocomplete="off" value={this.state.input} onChange={::this.changeHandler}></input>
 					</label>
 					<br/>
 					<br/>

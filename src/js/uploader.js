@@ -13,23 +13,23 @@ export default class Uploader extends Component{
 
 	}
 
-	// constructor(){
-	// 	super();
-	// 	this.state = {
+	constructor(){
+		super();
+		this.state = {
 
-	// 		preview: 
+			preview: "http://www.martinezcreativegroup.com/wp-content/uploads/2014/05/img-placeholder.png"
 
-	// 	}
-	// }
+		}
+	}
 
 	dataHandler(data){
-		if (this.file && data.caption){
+		if (this.file && data.caption && data.country){
 			data.file = this.file;
 			console.log(data);
 			this.props.sendData(data);
 		}else{
 
-			alert("You must enter a caption and an image");
+			alert("You must enter the name of the landmark, the country it is located in, and an image");
 
 		}
 		
@@ -39,6 +39,14 @@ export default class Uploader extends Component{
 	dropHandler([file]){
 
 		this.file = file;
+
+		console.log(this.file);
+
+		this.setState({
+
+			preview: this.file.preview
+
+		});
 	}
 
 	clickHandler(){
@@ -78,6 +86,7 @@ export default class Uploader extends Component{
 						click or drag and drop 
 						 your image file here.
 						 landscape view preferred!
+						 <img src={this.state.preview} alt="preview-img"></img>
 						</Dropzone>
 						<br/>
 						<br/>
@@ -86,7 +95,7 @@ export default class Uploader extends Component{
 						<br/>
 						<br/>
 
-						<label>Enter caption below:
+						<label>Enter the name of this landmark below:
 						<br/>
 						<br/>
 							<input type="text" name="caption"></input>
