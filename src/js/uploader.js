@@ -58,33 +58,55 @@ export default class Uploader extends Component{
 		return(
 
 			<div className="uploader-wrapper">
+				<div className="logo">Bongo</div>
 				<button className="logout" onClick={::this.clickHandler}>Logout</button>
-			<div>
-				<button onClick={::this.returnToGameHandler}>Play Game</button>
-				<button onClick={::this.clickHandler}>Logout</button>
+			
+
 
 				<div className="uploader-wrapper-flex">
 
-				<SSF onData={::this.dataHandler}>
+					<SSF onData={::this.dataHandler}>
 
-					<h1>Uploader Page</h1>
-
-					<Dropzone onDrop={::this.dropHandler}>
-
-					</Dropzone>
-
-					<Countries></Countries>
-
-					<label>Enter caption below:
-						<input type="text" name="caption"></input>
-					</label>
-
-					<button>Submit</button>
+						<h1>Add your own content!</h1>
+						<h3>click or drag in drop a filein the field below</h3>
+						<h4>landscapes preferred</h4>
+						<br/>
+						<br/>
 
 
-				</SSF>
+						<Dropzone onDrop={::this.dropHandler}>
+						click or drag and drop 
+						 your image file here.
+						 landscape view preferred!
+						</Dropzone>
+						<br/>
+						<br/>
+
+						<Countries></Countries>
+						<br/>
+						<br/>
+
+						<label>Enter caption below:
+						<br/>
+						<br/>
+							<input type="text" name="caption"></input>
+						</label>
+						<br/>
+						<br/>
+						<button className="submit">Submit</button>
+
+
+					</SSF>
+						<br/>
+						<br/>
+						<br/>
+						<br/>
+						<br/>
+						<br/>
+
+				<button className="submit" onClick={::this.returnToGameHandler}>Play Game</button>
 				</div>
-			</div>
+		
 			</div>
 
 

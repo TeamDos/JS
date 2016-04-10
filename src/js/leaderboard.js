@@ -42,6 +42,8 @@ export default class Leaderboard extends Component {
 		return(
 
 			<div className="leaderboard-wrapper">
+			
+				<div className="logo">Bongo</div>
 
 				<button className="logout" onClick={::this.logoutHandler}>Logout</button>
 

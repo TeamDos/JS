@@ -106,6 +106,8 @@ export default class PlayBoard extends Component{
 		return(
 			<div className="playboard-wrapper">
 
+				<div className="logo2">Bongo</div>
+
 				<div className="countdown">
 				
 					TIME LEFT <br/>

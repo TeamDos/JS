@@ -170,7 +170,14 @@
 	position:relative;
 
 
-
+.logo2 {
+	position:absolute;
+	z-index:9999;
+	top: 0;
+	left:10px;
+	font-family: 'Pacifico', cursive;
+	font-size: 32px;
+}
 
 
 
@@ -265,8 +272,14 @@
 
 
 .uploader-wrapper-flex{
-	display:flex;
-	justify-content:center;
+	width: 500px;
+	margin:auto;
+	padding-top:50px;
+	text-align: center;
+}
+
+.dropzone-wrapper{
+
 }
 
 
@@ -281,7 +294,7 @@
 .leaderboard-flex{
 	width:500px;
 	margin:auto;
-	padding-top: 150px;
+	padding-top: 50px;
 
 
 }
@@ -294,10 +307,15 @@
 .leaderboard-wrapper  h1{
 	font-family: 'Pacifico', cursive;
 	text-align: center;
+	font-size: 60px;
 }
 
 .leaderboard-wrapper ul {
 	list-style:none;
+	font-size: 40px;
+	font-weight: bold;
+	overflow:scroll;
+	height: 400px;
 
 }
 
@@ -310,6 +328,7 @@
 	padding-left: 10px;
 	padding-right: 10px;
 	width: 100px;
+	margin-right: 20px;
 
 }
 
