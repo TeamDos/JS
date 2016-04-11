@@ -47,9 +47,12 @@ export default class GameBoard extends Component {
 				<p>Bongo, the geo-guessing game, 
 				tests your knowledge of the world by seeing
 				if you can guess the country of famous (and sometimes not 
-				so famous) structures and sites by photo.  
-				Guess right and win 10 points,
-				Skip and lose 5 points. 
+				so famous) structures and sites by photo.
+				<br/>  
+				<b>Guess right and win 10 points,</b>
+				<br/>
+				<b>Skip and lose 5 points. </b>
+				<br/>
 				You're on a timer, so think fast!</p>
 
 				<br/>

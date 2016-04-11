@@ -76,16 +76,13 @@ export default class Uploader extends Component{
 					<SSF onData={::this.dataHandler}>
 
 						<h1>Add your own content!</h1>
-						<h3>click or drag in drop a filein the field below</h3>
-						<h4>landscapes preferred</h4>
+						<h3>click or drag and drop a file in the field below</h3>
+						<h4> (landscapes preferred) </h4>
 						<br/>
 						<br/>
 
-
-						<Dropzone onDrop={::this.dropHandler}>
-						click or drag and drop 
-						 your image file here.
-						 landscape view preferred!
+						<Dropzone className="dropzone" onDrop={::this.dropHandler}>
+						
 						 <img src={this.state.preview} alt="preview-img"></img>
 						</Dropzone>
 						<br/>
@@ -109,9 +106,7 @@ export default class Uploader extends Component{
 						<br/>
 						<br/>
 						<br/>
-						<br/>
-						<br/>
-						<br/>
+		
 
 				<button className="submit" onClick={::this.returnToGameHandler}>Play Game</button>
 				</div>
