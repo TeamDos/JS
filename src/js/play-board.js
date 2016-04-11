@@ -16,7 +16,7 @@ export default class PlayBoard extends Component{
 		super();
 		this.state = {
 
-			countdown: 20,
+			countdown: 50,
 			imgToDisplay: 0,
 			currentScore: 0,
 			input: ""
@@ -99,9 +99,9 @@ export default class PlayBoard extends Component{
 		let { gameData } = this.props;
 		let { imgToDisplay } = this.state;
 
-		console.log("gameData", gameData);
-		console.log("gameData", gameData[imgToDisplay].img);
-		console.log(imgToDisplay);
+		// console.log("gameData", gameData);
+		// console.log("gameData", gameData[imgToDisplay].img);
+		// console.log(imgToDisplay);
 
 		return(
 			<div className="playboard-wrapper">
@@ -120,7 +120,7 @@ export default class PlayBoard extends Component{
 
 				<SSF onData={::this.dataHandler} autocomplete="new-password">
 					<div>
-						<img src={gameData[ imgToDisplay ].img} alt={gameData[ imgToDisplay ].caption}/>
+						<img src={gameData[ imgToDisplay ].url} alt={gameData[ imgToDisplay ].caption}/>
 					</div>
 
 					<div  className="answer-form">

@@ -172,17 +172,64 @@ let testData = [{"caption": "pyramids", "country": "Egypt", img: "http://cdn.his
 
  ];
 
- let shuffledGameData = _.shuffle(testData);
+ // let shuffledGameData = _.shuffle(testData);
 
 function stageGame (){
 
-	render(
+	const URL = "https://safe-ridge-87798.herokuapp.com/images/index";
+	let Auth_Token = loggedInUser.auth_token;
 
-		<PlayBoard gameData={ shuffledGameData } onGameOver={getLeaderboardData}/>,
-		document.querySelector('.app')
-	);
+	ajax({ url: URL, headers: {"Auth-Token": Auth_Token} }).then( data => {
+
+		console.log("data from get request => ",data);
+		console.log("data.images from get request => ",data.images);
+		console.log("data.images[0] from get request => ",data.images[0]);
+
+		let { images } = data;
+
+		let shuffledGameData = _.shuffle(images);
+ 
+
+		render(
+
+			<PlayBoard gameData={ shuffledGameData } onGameOver={getLeaderboardData}/>,
+			document.querySelector('.app')
+		);
+
+		});
+
+	
 
 }
+
+// function stageGame (){
+
+// 	const URL = "https://safe-ridge-87798.herokuapp.com/images/index";
+// 	let Auth_Token = loggedInUser.auth_token;
+
+// 	ajax({ URL: "https://safe-ridge-87798.herokuapp.com/images/index",
+// 		   type: 'GET',
+// 		   headers: {"Auth-Token": Auth_Token},
+// 		   contentType: false,
+// 		   dataType: 'json',
+//      	   processData: false,
+//      	   cache: false
+//             }).then( data => {
+
+// 		console.log("data from get request => ",data);
+
+
+// 		render(
+
+// 			<PlayBoard gameData={ shuffledGameData } onGameOver={getLeaderboardData}/>,
+// 			document.querySelector('.app')
+// 		);
+
+// 		});
+
+	
+
+// }
 
 
 // function stageGame (){
@@ -242,6 +289,11 @@ function getLeaderboardData (score){
 		"username": Cookies.get('username'),
 		"score": score
 	}
+
+	////ajax post request to update leaderboard
+
+
+	///in the ".then" of that request make a get request to get the new leaderboard data
 
 	let testLeaderboard = [ 
 		{ "username": "username", "score": 55 },
