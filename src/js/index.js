@@ -290,46 +290,77 @@ function getLeaderboardData (score){
 		"score": score
 	}
 
+
+	let data = new FormData();
+	data.append('username', loggedInUser.username);
+	data.append('score', score);
+
 	////ajax post request to update leaderboard
 
 
-	///in the ".then" of that request make a get request to get the new leaderboard data
-
-	let testLeaderboard = [ 
-		{ "username": "username", "score": 55 },
-		{ "username": "username2", "score": 155 },
-		{ "username": "username3", "score": 5555 },
-		{ "username": "username4", "score": 55 },
-		{ "username": "username5", "score": 155 },
-		{ "username": "username6", "score": 5555 }
-	];
-
-		function sortArray(array, key) {
-	    return array.sort(function(a, b) {
-	        if(a[key] < b[key]){
-	            
-	            return 1;
-	          
-	        }else if(a[key] > b[key]){
-	          
-	            return -1;
-	          
-	        }else{
-	          return 0;
-	        };
-	    });
-	}
-
-	var sortedLeaderboard = sortArray(testLeaderboard, "score");
-    	
-    	render(
-
-		<Leaderboard leaderboardData={ testLeaderboard } playAgain={renderGameBoard} addImg={renderUploader} toLogout={logout} currentGame={finishedGameData}/>,
-		document.querySelector('.app')
+	ajax({
+      url: 'https://safe-ridge-87798.herokuapp.com/',
+      type: 'POST',
+      data: data,
+      cache: false,
+      dataType: 'json',
+      processData: false,
+      contentType: false
+    }).then( (response, statusText, { status } ) => {
 		
-	);
+    	if (status == 201){
 
-}
+    		console.log(response);
+
+    		ajax({ url: URL, headers: {"Auth-Token": Auth_Token} }).then( data =>{
+
+
+				let testLeaderboard = [ 
+					{ "username": "username", "score": 55 },
+					{ "username": "username2", "score": 155 },
+					{ "username": "username3", "score": 5555 },
+					{ "username": "username4", "score": 55 },
+					{ "username": "username5", "score": 155 },
+					{ "username": "username6", "score": 5555 }
+				];
+
+					function sortArray(array, key) {
+				    return array.sort(function(a, b) {
+				        if(a[key] < b[key]){
+				            
+				            return 1;
+				          
+				        }else if(a[key] > b[key]){
+				          
+				            return -1;
+				          
+				        }else{
+				          return 0;
+				        };
+				    });
+				}
+
+				var sortedLeaderboard = sortArray(testLeaderboard, "score");
+			    	
+			    	render(
+
+					<Leaderboard leaderboardData={ testLeaderboard } playAgain={renderGameBoard} addImg={renderUploader} toLogout={logout} currentGame={finishedGameData}/>,
+					document.querySelector('.app')
+					
+				);
+
+
+    		});
+
+			
+
+    	}///end of if statement
+
+
+    });////end of first ajax then func
+
+
+}///end of getdata func
 
 function renderLogin (){
 
