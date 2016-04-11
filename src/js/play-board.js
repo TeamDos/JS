@@ -16,7 +16,7 @@ export default class PlayBoard extends Component{
 		super();
 		this.state = {
 
-			countdown: 50,
+			countdown: 10,
 			imgToDisplay: 0,
 			currentScore: 0,
 			input: ""
@@ -68,7 +68,7 @@ export default class PlayBoard extends Component{
 
 	changeHandler(event){
 
-		this.setState( { input: event.target.value });
+		this.setState( { input: event.target.value } );
 
 	}
 
@@ -103,7 +103,7 @@ export default class PlayBoard extends Component{
 
 				<div className="countdown">
 				
-					TIME LEFT <br/>
+					<p>TIME LEFT</p> <br/>
 					<span className="countdown-numbers"> {this.state.countdown}</span>
 				</div>	
 

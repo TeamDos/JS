@@ -189,11 +189,54 @@ function getLeaderboardData (score){
 	data.append('username', loggedInUser.username);
 	data.append('score', score);
 
+
+
+	////////fake data to show demo
+
+
+// 	let testLeaderboard = [ 
+// 					{ "username": "username", "score": 80 },
+// 					{ "username": "username2", "score": 155 },
+// 					{ "username": "username3", "score": 5555 },
+// 					{ "username": "username4", "score": 35 },
+// 					{ "username": "user", "score": 155 },
+// 					{ "username": "Daniel", "score": 10000593057932 }
+// 				];
+
+// 					function sortArray(array, key) {
+// 				    return array.sort(function(a, b) {
+// 				        if(a[key] < b[key]){
+				            
+// 				            return 1;
+				          
+// 				        }else if(a[key] > b[key]){
+				          
+// 				            return -1;
+				          
+// 				        }else{
+// 				          return 0;
+// 				        };
+// 				    });
+// 				}
+
+// 				var sortedLeaderboard = sortArray(testLeaderboard, "score");
+
+
+// render(
+
+// 		<Leaderboard leaderboardData={ sortedLeaderboard } playAgain={renderGameBoard} addImg={renderUploader} toLogout={logout} currentGame={finishedGameData}/>,
+// 		document.querySelector('.app')
+
+// 		);
+
+	//////end of fake data
+
 	////ajax post request to update leaderboard
+	
 
 
 	ajax({
-      url: 'https://safe-ridge-87798.herokuapp.com/leaderboard',
+      url: 'https://safe-ridge-87798.herokuapp.com/leaderboards',
       type: 'POST',
       data: data,
       headers: {"Auth-Token": Auth_Token},
@@ -207,7 +250,7 @@ function getLeaderboardData (score){
 
     		console.log(response);
 
-    		ajax({ url: 'https://safe-ridge-87798.herokuapp.com/leaderboard/index', headers: {"Auth-Token": Auth_Token} }).then( data =>{
+    		ajax({ url: 'https://safe-ridge-87798.herokuapp.com/leaderboards/index', headers: {"Auth-Token": Auth_Token} }).then( data =>{
 
     			console.log("data from ajax get => ", data);
 

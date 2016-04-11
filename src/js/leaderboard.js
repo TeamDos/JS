@@ -49,9 +49,10 @@ export default class Leaderboard extends Component {
 
 				<div className="leaderboard-flex">
 
-
-				<div className="congrats">Congrats {this.props.currentGame.username}, 
-				<br/>you finished with a score of {this.props.currentGame.score}! See how you stack up against others below.</div>
+				<div className="post-game-message">
+					<div className="congrats">Congrats {this.props.currentGame.username}, 
+					<br/>you finished with a score of <b>{this.props.currentGame.score}</b>! See how you stack up against others below.</div>
+				</div>
 
 
 				<h1>Leaderboard</h1>
