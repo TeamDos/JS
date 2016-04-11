@@ -44,7 +44,7 @@ export default class GameBoard extends Component {
 				<div className="gameboard-flex-wrapper">
 
 
-				<p><i class="fa fa-globe"></i><br/>Bongo, the geo-guessing game, 
+				<p>Bongo, the geo-guessing game, 
 				tests your knowledge of the world by seeing
 				if you can guess the country of famous (and sometimes not 
 				so famous) structures and sites by photo.  
