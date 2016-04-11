@@ -32,19 +32,12 @@ export default class PlayBoard extends Component{
 
 		if(data.country.toLowerCase() === gameData[imgToDisplay].country.toLowerCase()){
 
-			////go to next img
-
-
-			//////this might need to go in setState //////////////////////////////////////////
 			currentScore +=10;
 			imgToDisplay++;
 			// input = "";
 			this.setState({ imgToDisplay });
 			this.setState({ currentScore });
 			this.setState({ input: "" });
-
-
-			/////need to think through what clears the input field as well
 
 		}else{
 

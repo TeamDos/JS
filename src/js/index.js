@@ -155,7 +155,9 @@ function stageGame (){
 
 		let { images } = data;
 
-		let shuffledGameData = _.shuffle(images);
+		let gatedata = images.slice(29, images.length)
+
+		let shuffledGameData = _.shuffle(gatedata);
  
 
 		render(
@@ -174,6 +176,7 @@ function stageGame (){
 function getLeaderboardData (score){
 
 	console.log("score =>",score);
+	let Auth_Token = loggedInUser.auth_token;
 
 	let finishedGameData = {
 
@@ -190,9 +193,10 @@ function getLeaderboardData (score){
 
 
 	ajax({
-      url: 'https://safe-ridge-87798.herokuapp.com/',
+      url: 'https://safe-ridge-87798.herokuapp.com/leaderboard',
       type: 'POST',
       data: data,
+      headers: {"Auth-Token": Auth_Token},
       cache: false,
       dataType: 'json',
       processData: false,
@@ -203,8 +207,9 @@ function getLeaderboardData (score){
 
     		console.log(response);
 
-    		ajax({ url: URL, headers: {"Auth-Token": Auth_Token} }).then( data =>{
+    		ajax({ url: 'https://safe-ridge-87798.herokuapp.com/leaderboard/index', headers: {"Auth-Token": Auth_Token} }).then( data =>{
 
+    			console.log("data from ajax get => ", data);
 
 				let testLeaderboard = [ 
 					{ "username": "username", "score": 55 },
