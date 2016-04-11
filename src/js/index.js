@@ -130,38 +130,6 @@ function sendDataAndRenderGame(data){
     });
 }
 
-//////////GET example from class
-
-// ajax({url}).then(data => {
-//     NProgress.done();
-//     ReactDOM.render(
-//       <UserList
-//       users={data}
-//       onUserSelect={renderDetails}
-//       onUserRemove={removeAndRender}
-//       onNew={renderAdd}/>
-//       , document.querySelector('.app')
-//     );
-//   });
-
-// }
-
-// function stageGame (){
-
-// 	let URL = "http://s3-us-west-2.amazonaws.com/bongo/images/imgs/000/000/004/original/bongo-drum.jpg?1460150499";
-
-// 	ajax({ URL, type: 'GET' }).then( data => {
-
-// 		console.log("data", data);
-
-// 	render(
-
-// 		<PlayBoard gameData={ data } onGameOver={getLeaderboardData}/>,
-// 		document.querySelector('.app')
-// 	);
-
-// 	});
-// }
 let testData = [{"caption": "pyramids", "country": "Egypt", img: "http://cdn.history.com/sites/2/2013/12/egyptian-pyramids-hero-H.jpeg"},
  {"caption": "machu picchu", "country": "Peru", img: "http://www.travelandleisure.com/sites/default/files/styles/1600x1000/public/1434385487/ATTRACTIONS0615-machu-picchu.jpg?itok=H-P-lyy8"},
  {"caption": "Petra", "country": "Jordan", "img": "http://theplanetd.com/images/petra-jordan-photos-treasury.jpg"},
@@ -202,83 +170,6 @@ function stageGame (){
 
 }
 
-// function stageGame (){
-
-// 	const URL = "https://safe-ridge-87798.herokuapp.com/images/index";
-// 	let Auth_Token = loggedInUser.auth_token;
-
-// 	ajax({ URL: "https://safe-ridge-87798.herokuapp.com/images/index",
-// 		   type: 'GET',
-// 		   headers: {"Auth-Token": Auth_Token},
-// 		   contentType: false,
-// 		   dataType: 'json',
-//      	   processData: false,
-//      	   cache: false
-//             }).then( data => {
-
-// 		console.log("data from get request => ",data);
-
-
-// 		render(
-
-// 			<PlayBoard gameData={ shuffledGameData } onGameOver={getLeaderboardData}/>,
-// 			document.querySelector('.app')
-// 		);
-
-// 		});
-
-	
-
-// }
-
-
-// function stageGame (){
-
-// 	let URL = "http://s3-us-west-2.amazonaws.com/bongo/images/imgs/000/000/004/original/bongo-drum.jpg?1460150499";
-
-// 	ajax({
-//       url: URL,
-//       type: 'GET',
-//       dataType: 'json',
-//       processData: false,
-//       contentType: false
-//     }).then( data => {
-
-// 		console.log("data", data);
-
-// 	render(
-
-// 		<PlayBoard gameData={ data } onGameOver={getLeaderboardData}/>,
-// 		document.querySelector('.app')
-// 	);
-
-// 	});
-// }
-
-// function getLeaderboardData (score){
-
-
-	/////first POST request the username and score and call the GET request in the 'then' of the first request
-
-// 	ajax({
-//       url: 'https://safe-ridge-87798.herokuapp.com/users',
-//       type: 'GET',
-//       data: data,
-//       cache: false,
-//       dataType: 'json',
-//       processData: false,
-//       contentType: false
-//     }).then( data => {
-    	
-//     	render(
-
-// 		<Leaderboard leaderboardData={ data } playAgain={renderGameBoard} addImg={renderUploader} toLogout={logout}/>,
-// 		document.querySelector('.app')
-		
-// 	);
-//     });
-
-// }
 
 function getLeaderboardData (score){
 
@@ -402,25 +293,6 @@ function renderUploader (){
 
 };
 
-// function renderLeaderboard(){
-
-// 	render(
-
-// 		<Leaderboard leaderboardData={getLeaderboardData} playAgain={renderGameBoard}/>,
-// 		document.querySelector('.app')
-// 	);
-
-// };
-
-// function renderPlayBoard (){
-
-// 	render(
-
-// 		<PlayBoard gameData={stageGame} onGameOver={renderLeaderboard}/>,
-// 		document.querySelector('.app')
-// 	);
-
-// };
 
 function logout (){
 
