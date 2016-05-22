@@ -229,22 +229,27 @@
 }
 
 .skip{
-	position:absolute;
-	top:300px;
-	right: 25px;
+	float: right;
+	margin-top:300px;
+	// right: 25px;
 	z-index: 9999;
 	font-family: 'Pacifico', cursive;
 	font-size: 55px;
-	background-color: transparent;
-	border: none;
-	border-radius: 10px;
+	// background-color: transparent;
+	// border: none;
+	// border-radius: 10px;
+	padding: 20px;
+
+		&:hover{
+		color:white;
+		border:none;
+		cursor: pointer;
+		}
+	
 
 }
 
-.skip:hover{
-	color:white;
-	border:none;
-}
+
 
 .answer-form{
 	position: absolute;
@@ -312,10 +317,10 @@
 ///////////////LEADERBOARD////////////////
 
 
-.leaderboard-wrapper{
-	height:100vh;
+// .leaderboard-wrapper{
+// 	height:100vh;
 
-}
+// }
 
 .leaderboard-flex{
 	width:500px;
@@ -346,8 +351,12 @@
 	list-style:none;
 	font-size: 40px;
 	font-weight: bold;
-	overflow:scroll;
-	height: 400px;
+	h4{
+
+		font-family: 'Pacifico', cursive;
+		font-size: 1.2em;
+
+	}
 
 }
 
@@ -360,7 +369,7 @@
 	padding-left: 10px;
 	padding-right: 10px;
 	width: 100px;
-	margin-right: 20px;
+	margin: 20px 20px 20px 0px;
 
 }
 

@@ -38,6 +38,9 @@ export default class Leaderboard extends Component {
 	}
 
 	render(){
+		console.log("on leaderboard page", this.props.leaderboardData);
+
+		let date = new Date();
 
 		return(
 
@@ -58,7 +61,8 @@ export default class Leaderboard extends Component {
 				<h1>Leaderboard</h1>
 
 				<ul>
-				 	{this.props.leaderboardData.map( user => <li key={user.username + user.score}>{user.username}: {user.score}</li>)}
+					<h4>Top Ten</h4>
+				 	{this.props.leaderboardData.map( user => <li key={user.username + user.score + date}>{user.username}: {user.score}</li>)}
 				</ul>
 
 				<button className="leaderboard-playagain" onClick={::this.clickHandler}>Play Again</button>

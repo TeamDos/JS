@@ -145,7 +145,10 @@ let testData = [{"caption": "pyramids", "country": "Egypt", img: "http://cdn.his
 function stageGame (){
 
 	const URL = "https://safe-ridge-87798.herokuapp.com/images/index";
-	let Auth_Token = loggedInUser.auth_token;
+	// let Auth_Token = loggedInUser.auth_token;
+
+	
+	let Auth_Token = Cookies.get('auth_token');
 
 	ajax({ url: URL, headers: {"Auth-Token": Auth_Token} }).then( data => {
 
@@ -155,9 +158,9 @@ function stageGame (){
 
 		let { images } = data;
 
-		let gatedata = images.slice(29, images.length)
+		let gamedata = images.slice(29, images.length)
 
-		let shuffledGameData = _.shuffle(gatedata);
+		let shuffledGameData = _.shuffle(gamedata);
  
 
 		render(
@@ -175,7 +178,6 @@ function stageGame (){
 
 function getLeaderboardData (score){
 
-	console.log("score =>",score);
 	let Auth_Token = loggedInUser.auth_token;
 
 	let finishedGameData = {
@@ -194,40 +196,40 @@ function getLeaderboardData (score){
 	////////fake data to show demo
 
 
-	let testLeaderboard = [ 
-					{ "username": "username", "score": 80 },
-					{ "username": "username2", "score": 155 },
-					{ "username": "username3", "score": 5555 },
-					{ "username": "username4", "score": 35 },
-					{ "username": "user", "score": 155 },
-					{ "username": "Daniel", "score": 10000593057932 }
-				];
+// 	let testLeaderboard = [ 
+// 					{ "username": "username", "score": 80 },
+// 					{ "username": "username2", "score": 155 },
+// 					{ "username": "username3", "score": 5555 },
+// 					{ "username": "username4", "score": 35 },
+// 					{ "username": "user", "score": 155 },
+// 					{ "username": "Daniel", "score": 10000593057932 }
+// 				];
 
-					function sortArray(array, key) {
-				    return array.sort(function(a, b) {
-				        if(a[key] < b[key]){
+// 					function sortArray(array, key) {
+// 				    return array.sort(function(a, b) {
+// 				        if(a[key] < b[key]){
 				            
-				            return 1;
+// 				            return 1;
 				          
-				        }else if(a[key] > b[key]){
+// 				        }else if(a[key] > b[key]){
 				          
-				            return -1;
+// 				            return -1;
 				          
-				        }else{
-				          return 0;
-				        };
-				    });
-				}
+// 				        }else{
+// 				          return 0;
+// 				        };
+// 				    });
+// 				}
 
-				var sortedLeaderboard = sortArray(testLeaderboard, "score");
+// 				var sortedLeaderboard = sortArray(testLeaderboard, "score");
 
 
-render(
+// render(
 
-		<Leaderboard leaderboardData={ sortedLeaderboard } playAgain={renderGameBoard} addImg={renderUploader} toLogout={logout} currentGame={finishedGameData}/>,
-		document.querySelector('.app')
+// 		<Leaderboard leaderboardData={ sortedLeaderboard } playAgain={renderGameBoard} addImg={renderUploader} toLogout={logout} currentGame={finishedGameData}/>,
+// 		document.querySelector('.app')
 
-		);
+// 		);
 
 	//////end of fake data
 
@@ -248,20 +250,24 @@ render(
 		
     	if (status == 201){
 
-    		console.log(response);
-
     		ajax({ url: 'https://safe-ridge-87798.herokuapp.com/leaderboards/index', headers: {"Auth-Token": Auth_Token} }).then( data =>{
 
     			console.log("data from ajax get => ", data);
 
-				let testLeaderboard = [ 
-					{ "username": "username", "score": 55 },
-					{ "username": "username2", "score": 155 },
-					{ "username": "username3", "score": 5555 },
-					{ "username": "username4", "score": 55 },
-					{ "username": "username5", "score": 155 },
-					{ "username": "username6", "score": 5555 }
-				];
+				// let testLeaderboard = [ 
+				// 	{ "username": "username", "score": 55 },
+				// 	{ "username": "username2", "score": 155 },
+				// 	{ "username": "username3", "score": 5555 },
+				// 	{ "username": "username4", "score": 55 },
+				// 	{ "username": "username5", "score": 155 },
+				// 	{ "username": "username6", "score": 5555 }
+				// ];
+
+				let leaderboardData = [];
+
+				data.leaderboards.forEach(datum => leaderboardData.push({"username": datum.username, "score": datum.score}));
+
+				//////djhbskbbcbkbk ksrbkvbksjkbkb
 
 					function sortArray(array, key) {
 				    return array.sort(function(a, b) {
@@ -279,11 +285,15 @@ render(
 				    });
 				}
 
-				var sortedLeaderboard = sortArray(testLeaderboard, "score");
+				var sortedLeaderboard = sortArray(leaderboardData, "score");
+
+				leaderboardData.splice(10, leaderboardData.length);
+
+				console.log("leaderboardData post splice", leaderboardData);
 			    	
 			    	render(
 
-					<Leaderboard leaderboardData={ testLeaderboard } playAgain={renderGameBoard} addImg={renderUploader} toLogout={logout} currentGame={finishedGameData}/>,
+					<Leaderboard leaderboardData={ leaderboardData } playAgain={renderGameBoard} addImg={renderUploader} toLogout={logout} currentGame={finishedGameData}/>,
 					document.querySelector('.app')
 					
 				);

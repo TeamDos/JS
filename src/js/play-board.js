@@ -107,7 +107,8 @@ export default class PlayBoard extends Component{
 					<span className="countdown-numbers"> {this.state.countdown}</span>
 				</div>	
 
-					<button className="skip" onClick={::this.clickHandler}>Skip <i className="fa fa-arrow-right"></i></button>
+					
+					
 				
 				
 
@@ -127,7 +128,7 @@ export default class PlayBoard extends Component{
 					</div>
 
 				</SSF>
-				
+				<div className="skip" onClick={::this.clickHandler}>Skip => </div>
 			</div>
 
 			);
@@ -135,3 +136,8 @@ export default class PlayBoard extends Component{
 	}
 
 }
+
+
+//<i className="fa fa-arrow-right skip" onClick={::this.clickHandler}>Skip</i>
+
+
